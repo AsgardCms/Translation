@@ -15,12 +15,12 @@ class CreateTranslationTranslationTranslationsTable extends Migration
         Schema::create('translation__translation_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            // Your translatable fields
+            $table->string('value');
 
             $table->integer('translation_id')->unsigned();
             $table->string('locale')->index();
-            $table->unique(['translation_id', 'locale']);
-            $table->foreign('translation_id')->references('id')->on('translation__translations')->onDelete('cascade');
+            $table->unique(['translation_id', 'locale'], 'translations_trans_id_locale_unique');
+            $table->foreign('translation_id' )->references('id')->on('translation__translations')->onDelete('cascade');
         });
     }
 
