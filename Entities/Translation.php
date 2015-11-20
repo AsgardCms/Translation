@@ -8,6 +8,6 @@ class Translation extends Model
     use Translatable;
 
     protected $table = 'translation__translations';
-    public $translatedAttributes = [];
-    protected $fillable = [];
+    public $translatedAttributes = ['value'];
+    protected $fillable = ['key', 'value'];
 }
