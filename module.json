@@ -1,0 +1,16 @@
+{
+    "name": "Translation",
+    "alias": "translation",
+    "description": "Module containing all AsgardCms translations",
+    "version": "1.0.0",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Translation\\Providers\\TranslationServiceProvider",
+        "Modules\\Translation\\Providers\\RouteServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+    ]
+}

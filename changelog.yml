@@ -1,0 +1,5 @@
+url: https://github.com/AsgardCms/Translation
+versions:
+    "1.0.0":
+        changed:
+            - Initial release
