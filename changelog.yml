@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.1.0":
+        changed:
+            - Adding translation file for the Translation module itself
     "1.0.0":
         changed:
             - Initial release
