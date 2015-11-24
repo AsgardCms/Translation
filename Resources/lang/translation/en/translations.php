@@ -3,5 +3,17 @@
 return [
     'title' => [
         'translations' => 'Translations',
+        'edit translation' => 'Edit a translation',
+    ],
+    'button' => [
+        'create translation' => 'Create a translation',
+    ],
+    'table' => [
+    ],
+    'form' => [
+    ],
+    'messages' => [
+    ],
+    'validation' => [
     ],
 ];
