@@ -44,6 +44,7 @@ class BuildTranslationsCache extends Job implements SelfHandling, ShouldQueue
      */
     public function cacheAll(TranslationGroup $group)
     {
+        Cache::forget('allTranslations');
         Cache::rememberForever('allTranslations', function () use ($group) {
            return $group;
         });
