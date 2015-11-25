@@ -20,9 +20,4 @@ class EloquentTranslationRepository extends EloquentBaseRepository implements Da
 
         return $allDatabaseTranslations;
     }
-
-    private function getModuleNameFrom($fullKey)
-    {
-        return substr($fullKey, 0, strpos($fullKey, '::'));
-    }
 }
