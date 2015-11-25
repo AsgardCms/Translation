@@ -14,5 +14,6 @@ class BuildTranslationsCacheCommand extends Command
     public function fire()
     {
         $this->dispatch(new BuildTranslationsCache());
+        $this->info('All translations were cached.');
     }
 }
