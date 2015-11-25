@@ -3,6 +3,8 @@
 use Illuminate\Support\ServiceProvider;
 use Modules\Translation\Console\BuildTranslationsCacheCommand;
 use Modules\Translation\Entities\Translation;
+use Modules\Translation\Repositories\Cache\CacheTranslationRepository;
+use Modules\Translation\Repositories\CacheTranslation;
 use Modules\Translation\Repositories\DatabaseTranslationRepository;
 use Modules\Translation\Repositories\Eloquent\EloquentTranslationRepository;
 use Modules\Translation\Repositories\File\FileTranslationRepository;
@@ -46,6 +48,9 @@ class TranslationServiceProvider extends ServiceProvider
         });
         $this->app->bind(FileTranslationRepositoryInterface::class, function ($app) {
             return new FileTranslationRepository($app['files']);
+        });
+        $this->app->bind(CacheTranslation::class, function () {
+            return new CacheTranslationRepository();
         });
     }
 
