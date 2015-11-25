@@ -1,6 +1,13 @@
 <?php namespace Modules\Translation\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Modules\Translation\Console\BuildTranslationsCacheCommand;
+use Modules\Translation\Entities\Translation;
+use Modules\Translation\Repositories\DatabaseTranslationRepository;
+use Modules\Translation\Repositories\Eloquent\EloquentTranslationRepository;
+use Modules\Translation\Repositories\File\FileTranslationRepository;
+use Modules\Translation\Repositories\FileTranslationRepository as FileTranslationRepositoryInterface;
+use Modules\Translation\Repositories\TranslationRepository;
 
 class TranslationServiceProvider extends ServiceProvider
 {
@@ -19,6 +26,7 @@ class TranslationServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerBindings();
+        $this->registerConsoleCommands();
     }
 
     /**
@@ -33,18 +41,20 @@ class TranslationServiceProvider extends ServiceProvider
 
     private function registerBindings()
     {
-        $this->app->bind(
-            'Modules\Translation\Repositories\TranslationRepository',
-            function () {
-                $repository = new \Modules\Translation\Repositories\Eloquent\EloquentTranslationRepository(new \Modules\Translation\Entities\Translation());
+        $this->app->bind(DatabaseTranslationRepository::class, function () {
+            return new EloquentTranslationRepository(new Translation());
+        });
+        $this->app->bind(FileTranslationRepositoryInterface::class, function ($app) {
+            return new FileTranslationRepository($app['files']);
+        });
+    }
 
-                if (! config('app.cache')) {
-                    return $repository;
-                }
+    private function registerConsoleCommands()
+    {
+        $this->app->bind('command.asgard.build.translations.cache', BuildTranslationsCacheCommand::class);
 
-                return new \Modules\Translation\Repositories\Cache\CacheTranslationDecorator($repository);
-            }
-        );
-// add bindings
+        $this->commands([
+            'command.asgard.build.translations.cache',
+        ]);
     }
 }

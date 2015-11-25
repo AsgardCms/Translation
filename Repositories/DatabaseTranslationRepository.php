@@ -2,6 +2,6 @@
 
 use Modules\Core\Repositories\BaseRepository;
 
-interface TranslationRepository extends BaseRepository
+interface DatabaseTranslationRepository extends BaseRepository
 {
 }
