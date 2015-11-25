@@ -25,10 +25,9 @@ class FileTranslationRepository implements FileTranslationRepositoryInterface
         $files = $this->finder->allFiles($this->getTranslationsDirectory());
         foreach ($files as $file) {
             $lang = $this->getLanguageFrom($file->getRelativePath());
-            $moduleName = $this->getModuleFrom($file->getRelativePath());
             $path = $file->getRelativePathname();
             $contents = $this->finder->getRequire($this->getTranslationsDirectory() . '/' . $path);
-            $trans = array_dot($contents, $moduleName . '::');
+            $trans = array_dot($contents, $this->getModuleFrom($file->getRelativePath()) . '::' . $this->getFileNameFrom($path) . '.');
             foreach ($trans as $key => $value) {
                 $allFileTranslations[$lang][$key] = $value;
             }
@@ -61,5 +60,12 @@ class FileTranslationRepository implements FileTranslationRepositoryInterface
     private function getModuleFrom($relativePath)
     {
         return explode('/', $relativePath)[0];
+    }
+
+    private function getFileNameFrom($path)
+    {
+        $fileName = substr(strrchr($path, "/"), 1);
+
+        return str_replace('.php', '', $fileName);
     }
 }
