@@ -11,5 +11,22 @@ interface TranslationRepository extends BaseRepository
      */
     public function findByKeyAndLocale($key, $locale = null);
 
+    /**
+     * @return mixed
+     */
     public function allFormatted();
+
+    /**
+     * @param $locale
+     * @param $key
+     * @param $value
+     * @return mixed
+     */
+    public function saveTranslationForLocaleAndKey($locale, $key, $value);
+
+    /**
+     * @param $key
+     * @return mixed
+     */
+    public function findTranslationByKey($key);
 }

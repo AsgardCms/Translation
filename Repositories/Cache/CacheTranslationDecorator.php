@@ -38,4 +38,22 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
                 }
             );
     }
+
+    public function saveTranslationForLocaleAndKey($locale, $key, $value)
+    {
+        $this->cache->tags($this->entityName)->flush();
+
+        return $this->repository->saveTranslationForLocaleAndKey($locale, $key, $value);
+    }
+
+    public function findTranslationByKey($key)
+    {
+        return $this->cache
+            ->tags($this->entityName, 'global')
+            ->rememberForever("{$this->locale}.{$this->entityName}.findTranslationByKey.{$key}",
+                function () use ($key) {
+                    return $this->repository->findTranslationByKey($key);
+                }
+            );
+    }
 }

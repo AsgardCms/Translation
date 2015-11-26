@@ -35,4 +35,16 @@ class EloquentTranslationRepository extends EloquentBaseRepository implements Tr
         }
         return $allDatabaseTranslations;
     }
+
+    public function saveTranslationForLocaleAndKey($locale, $key, $value)
+    {
+        $translation = $this->findTranslationByKey($key);
+        $translation->translateOrNew($locale)->value = $value;
+        $translation->save();
+    }
+
+    public function findTranslationByKey($key)
+    {
+        return $this->model->firstOrCreate(['key' => $key]);
+    }
 }
