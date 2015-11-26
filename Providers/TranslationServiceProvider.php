@@ -8,6 +8,8 @@ use Modules\Translation\Repositories\Cache\CacheTranslationRepository;
 use Modules\Translation\Repositories\CacheTranslation;
 use Modules\Translation\Repositories\DatabaseTranslationRepository;
 use Modules\Translation\Repositories\Eloquent\EloquentTranslationRepository;
+use Modules\Translation\Repositories\FileTranslationRepository;
+use Modules\Translation\Repositories\File\FileTranslationRepository as FileDiskTranslationRepository;
 use Modules\Translation\Repositories\TranslationRepository;
 use Modules\Translation\Services\Translator;
 
@@ -54,6 +56,10 @@ class TranslationServiceProvider extends ServiceProvider
             $repository = new EloquentTranslationRepository(new Translation());
 
             return new CacheTranslationDecorator($repository);
+        });
+
+        $this->app->bind(FileTranslationRepository::class, function ($app) {
+            return new FileDiskTranslationRepository($app['files']);
         });
     }
 

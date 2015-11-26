@@ -21,4 +21,18 @@ class EloquentTranslationRepository extends EloquentBaseRepository implements Tr
 
         return '';
     }
+
+    public function allFormatted()
+    {
+        $allRows = $this->all();
+        $allDatabaseTranslations = [];
+        foreach ($allRows as $translation) {
+            foreach (config('laravellocalization.supportedLocales') as $locale => $language) {
+                if ($translation->hasTranslation($locale)) {
+                    $allDatabaseTranslations[$locale][$translation->key] = $translation->translate($locale)->value;
+                }
+            }
+        }
+        return $allDatabaseTranslations;
+    }
 }

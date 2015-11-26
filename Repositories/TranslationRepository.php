@@ -10,4 +10,6 @@ interface TranslationRepository extends BaseRepository
      * @return string
      */
     public function findByKeyAndLocale($key, $locale = null);
+
+    public function allFormatted();
 }
