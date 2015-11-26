@@ -34,7 +34,7 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
                 $item->icon('fa fa-copy');
                 $item->weight(10);
                 $item->authorize(
-                     /* append */
+                    $this->auth->hasAccess('translation.translations.index')
                 );
                 $item->item(trans('translation::translations.title.translations'), function (Item $item) {
                     $item->icon('fa fa-copy');
@@ -45,8 +45,6 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
                         $this->auth->hasAccess('translation.translations.index')
                     );
                 });
-// append
-
             });
         });
 
