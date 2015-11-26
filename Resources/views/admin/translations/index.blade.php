@@ -15,9 +15,6 @@
         <div class="col-xs-12">
             <div class="row">
                 <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-                    <a href="{{ route('admin.translation.translation.create') }}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
-                        <i class="fa fa-pencil"></i> {{ trans('translation::translations.button.create translation') }}
-                    </a>
                 </div>
             </div>
             <div class="box box-primary">
@@ -28,25 +25,20 @@
                     <table class="data-table table table-bordered table-hover">
                         <thead>
                         <tr>
-                            <th>{{ trans('core::core.table.created at') }}</th>
-                            <th>{{ trans('core::core.table.actions') }}</th>
+                            <th>Key</th>
+                            <?php foreach (config('laravellocalization.supportedLocales') as $locale => $language): ?>
+                                <th>{{ $locale }}</th>
+                            <?php endforeach; ?>
                         </tr>
                         </thead>
                         <tbody>
                         <?php if (isset($translations)): ?>
-                        <?php foreach ($translations as $translation): ?>
+                        <?php foreach ($translations as $key => $translationGroup): ?>
                         <tr>
-                            <td>
-                                <a href="{{ route('admin.translation.translation.edit', [$translation->id]) }}">
-                                    {{ $translation->created_at }}
-                                </a>
-                            </td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="{{ route('admin.translation.translation.edit', [$translation->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#confirmation-{{ $translation->id }}"><i class="glyphicon glyphicon-trash"></i></button>
-                                </div>
-                            </td>
+                            <td>{{ $key }}</td>
+                            <?php foreach (config('laravellocalization.supportedLocales') as $locale => $language): ?>
+                                <td>{{ array_get($translationGroup, $locale, '') }}</td>
+                            <?php endforeach; ?>
                         </tr>
                         <?php endforeach; ?>
                         <?php endif; ?>
@@ -54,7 +46,9 @@
                         <tfoot>
                         <tr>
                             <th>{{ trans('core::core.table.created at') }}</th>
-                            <th>{{ trans('core::core.table.actions') }}</th>
+                            <?php foreach (config('laravellocalization.supportedLocales') as $locale => $language): ?>
+                            <th>{{ $locale }}</th>
+                            <?php endforeach; ?>
                         </tr>
                         </tfoot>
                     </table>
@@ -64,30 +58,6 @@
             </div>
         </div>
     </div>
-    <?php if (isset($translations)): ?>
-    <?php foreach ($translations as $translation): ?>
-    <!-- Modal -->
-    <div class="modal fade modal-danger" id="confirmation-{{ $translation->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">{{ trans('core::core.modal.title') }}</h4>
-                </div>
-                <div class="modal-body">
-                    {{ trans('core::core.modal.confirmation-message') }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline btn-flat" data-dismiss="modal">{{ trans('core::core.button.cancel') }}</button>
-                    {!! Form::open(['route' => ['admin.translation.translation.destroy', $translation->id], 'method' => 'delete', 'class' => 'pull-left']) !!}
-                    <button type="submit" class="btn btn-outline btn-flat"><i class="glyphicon glyphicon-trash"></i> {{ trans('core::core.button.delete') }}</button>
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php endforeach; ?>
-    <?php endif; ?>
 @stop
 
 @section('footer')
@@ -95,8 +65,6 @@
 @stop
 @section('shortcuts')
     <dl class="dl-horizontal">
-        <dt><code>c</code></dt>
-        <dd>{{ trans('translation::translations.title.create translation') }}</dd>
     </dl>
 @stop
 
@@ -105,7 +73,6 @@
         $( document ).ready(function() {
             $(document).keypressAction({
                 actions: [
-                    { key: 'c', route: "<?= route('admin.translation.translation.create') ?>" }
                 ]
             });
         });
@@ -120,15 +87,9 @@
                 "sort": true,
                 "info": true,
                 "autoWidth": true,
-                "order": [[ 0, "desc" ]],
                 "language": {
                     "url": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
-                },
-                "columns": [
-                    null,
-                    null,
-                    { "sortable": false }
-                ]
+                }
             });
         });
     </script>
