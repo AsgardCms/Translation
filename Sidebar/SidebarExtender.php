@@ -39,7 +39,6 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
                 $item->item(trans('translation::translations.title.translations'), function (Item $item) {
                     $item->icon('fa fa-copy');
                     $item->weight(0);
-                    $item->append('admin.translation.translation.create');
                     $item->route('admin.translation.translation.index');
                     $item->authorize(
                         $this->auth->hasAccess('translation.translations.index')
