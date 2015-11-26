@@ -1,10 +1,8 @@
 <?php namespace Modules\Translation\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use Laracasts\Flash\Flash;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
-use Modules\Translation\Entities\Translation;
 use Modules\Translation\Repositories\TranslationRepository;
+use Modules\Translation\Services\TranslationsService;
 
 class TranslationController extends AdminBaseController
 {
@@ -12,12 +10,17 @@ class TranslationController extends AdminBaseController
      * @var TranslationRepository
      */
     private $translation;
+    /**
+     * @var TranslationsService
+     */
+    private $translationsService;
 
-    public function __construct(TranslationRepository $translation)
+    public function __construct(TranslationRepository $translation, TranslationsService $translationsService)
     {
         parent::__construct();
 
         $this->translation = $translation;
+        $this->translationsService = $translationsService;
     }
 
     /**
@@ -27,7 +30,14 @@ class TranslationController extends AdminBaseController
      */
     public function index()
     {
-        $translations = $this->translation->all();
+        $translationsRaw = $this->translationsService->getFileAndDatabaseMergedTranslations();
+
+        $translations = [];
+        foreach ($translationsRaw as $locale => $translationGroup) {
+            foreach ($translationGroup as $key => $translation) {
+                $translations[$key][$locale] = $translation;
+            }
+        }
 
         return view('translation::admin.translations.index', compact('translations'));
     }
