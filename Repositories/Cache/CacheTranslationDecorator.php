@@ -27,4 +27,15 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
                 }
             );
     }
+
+    public function allFormatted()
+    {
+        return $this->cache
+            ->tags($this->entityName, 'global')
+            ->rememberForever("{$this->locale}.{$this->entityName}.allFormatted",
+                function () {
+                    return $this->repository->allFormatted();
+                }
+            );
+    }
 }
