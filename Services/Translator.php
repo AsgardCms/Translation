@@ -31,15 +31,14 @@ class Translator extends \Illuminate\Translation\Translator
      */
     public function get($key, array $replace = [], $locale = null, $fallback = true)
     {
-        /** @var CacheTranslation $cacheTranslation */
-        $cacheTranslation = app(CacheTranslation::class);
-        if ($translation = $cacheTranslation->get($key, $locale)) {
+        $translationRepository = app(TranslationRepository::class);
+        if ($translation = $translationRepository->findByKeyAndLocale($key, $locale)) {
             return $this->makeReplacements($translation, $replace);
         }
-        if ($this->shouldRebuildCache($key)) {
-            event(new TranslationNotFoundInCache($key));
-            $this->cacheRebuildQueued = true;
-        }
+//        if ($this->shouldRebuildCache($key)) {
+//            event(new TranslationNotFoundInCache($key));
+//            $this->cacheRebuildQueued = true;
+//        }
         return parent::get($key, $replace, $locale);
     }
     /**

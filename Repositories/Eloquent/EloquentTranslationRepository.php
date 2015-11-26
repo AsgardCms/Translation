@@ -1,23 +1,24 @@
 <?php namespace Modules\Translation\Repositories\Eloquent;
 
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
-use Modules\Translation\Repositories\DatabaseTranslationRepository;
+use Modules\Translation\Repositories\TranslationRepository;
 
-class EloquentTranslationRepository extends EloquentBaseRepository implements DatabaseTranslationRepository
+class EloquentTranslationRepository extends EloquentBaseRepository implements TranslationRepository
 {
-    public function all()
+    /**
+     * @param string $key
+     * @param string $locale
+     * @return string
+     */
+    public function findByKeyAndLocale($key, $locale = null)
     {
-        $allRows = $this->model->all();
-        $allDatabaseTranslations = [];
-        foreach ($allRows as $translation) {
-            foreach (config('laravellocalization.supportedLocales') as $locale => $language) {
-                if ($translation->hasTranslation($locale)) {
-                    $allDatabaseTranslations[$locale][$translation->key] = $translation->translate($locale)->value;
-                }
-            }
+        $locale = $locale ?: app()->getLocale();
+
+        $translation = $this->model->whereKey($key)->with('translations')->first();
+        if ($translation && $translation->hasTranslation($locale)) {
+            return $translation->translate($locale)->value;
         }
 
-        return $allDatabaseTranslations;
+        return '';
     }
 }

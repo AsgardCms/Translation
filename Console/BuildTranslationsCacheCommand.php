@@ -2,18 +2,32 @@
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Modules\Translation\Jobs\BuildTranslationsCache;
+use Modules\Translation\Repositories\TranslationRepository;
 
 class BuildTranslationsCacheCommand extends Command
 {
     use DispatchesJobs;
 
     protected $name = 'asgard:build:translations';
-    protected $description = 'Build the translations cache based on file and database';
+    protected $description = 'Build the translations cache';
+    /**
+     * @var
+     */
+    private $translation;
+
+    public function __construct(TranslationRepository $translation)
+    {
+        parent::__construct();
+        $this->translation = $translation;
+    }
 
     public function fire()
     {
-        $this->dispatch(new BuildTranslationsCache());
+        foreach ($this->translation->all() as $translation) {
+            foreach (config('laravellocalization.supportedLocales') as $locale => $language) {
+                $this->translation->findByKeyAndLocale($translation->key, $locale);
+            }
+        }
         $this->info('All translations were cached.');
     }
 }

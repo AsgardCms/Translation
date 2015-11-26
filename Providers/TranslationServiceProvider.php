@@ -3,13 +3,13 @@
 use Illuminate\Support\ServiceProvider;
 use Modules\Translation\Console\BuildTranslationsCacheCommand;
 use Modules\Translation\Entities\Translation;
+use Modules\Translation\Repositories\Cache\CacheTranslationDecorator;
 use Modules\Translation\Repositories\Cache\CacheTranslationRepository;
 use Modules\Translation\Repositories\CacheTranslation;
 use Modules\Translation\Repositories\DatabaseTranslationRepository;
 use Modules\Translation\Repositories\Eloquent\EloquentTranslationRepository;
-use Modules\Translation\Repositories\File\FileTranslationRepository;
-use Modules\Translation\Repositories\FileTranslationRepository as FileTranslationRepositoryInterface;
 use Modules\Translation\Repositories\TranslationRepository;
+use Modules\Translation\Services\Translator;
 
 class TranslationServiceProvider extends ServiceProvider
 {
@@ -31,6 +31,11 @@ class TranslationServiceProvider extends ServiceProvider
         $this->registerConsoleCommands();
     }
 
+    public function boot()
+    {
+        $this->registerCustomTranslator();
+    }
+
     /**
      * Get the services provided by the provider.
      *
@@ -43,23 +48,34 @@ class TranslationServiceProvider extends ServiceProvider
 
     private function registerBindings()
     {
-        $this->app->bind(DatabaseTranslationRepository::class, function () {
-            return new EloquentTranslationRepository(new Translation());
-        });
-        $this->app->bind(FileTranslationRepositoryInterface::class, function ($app) {
-            return new FileTranslationRepository($app['files']);
-        });
-        $this->app->bind(CacheTranslation::class, function () {
-            return new CacheTranslationRepository();
+        $this->app->bind(TranslationRepository::class, function () {
+            $repository = new EloquentTranslationRepository(new Translation());
+
+            return new CacheTranslationDecorator($repository);
         });
     }
 
     private function registerConsoleCommands()
     {
-        $this->app->bind('command.asgard.build.translations.cache', BuildTranslationsCacheCommand::class);
-
         $this->commands([
-            'command.asgard.build.translations.cache',
+            BuildTranslationsCacheCommand::class,
         ]);
+    }
+
+    protected function registerCustomTranslator()
+    {
+        $this->app->offsetUnset('translator');
+
+        $this->app->singleton('translator', function ($app) {
+            $loader = $app['translation.loader'];
+
+            $locale = $app['config']['app.locale'];
+
+            $trans = new Translator($loader, $locale);
+
+            $trans->setFallback($app['config']['app.fallback_locale']);
+
+            return $trans;
+        });
     }
 }
