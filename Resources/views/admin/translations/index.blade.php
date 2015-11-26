@@ -37,7 +37,9 @@
                         <tr>
                             <td>{{ $key }}</td>
                             <?php foreach (config('laravellocalization.supportedLocales') as $locale => $language): ?>
-                                <td>{{ array_get($translationGroup, $locale, '') }}</td>
+                                <td>
+                                    <a class="translation" data-pk="{{ $locale }}__-__{{ $key }}">{{ array_get($translationGroup, $locale, null) }}</a>
+                                </td>
                             <?php endforeach; ?>
                         </tr>
                         <?php endforeach; ?>
@@ -69,6 +71,39 @@
 @stop
 
 @section('scripts')
+    <script>
+        $(function() {
+            $('a.translation').editable({
+                url: function(params) {
+                    var splitKey = params.pk.split("__-__");
+                    var locale = splitKey[0];
+                    var key = splitKey[1];
+                    var value = params.value;
+
+                    if (! locale || ! key) {
+                        return false;
+                    }
+
+                    $.ajax({
+                        url: '{{ route("api.translation.translations.update") }}',
+                        method: 'POST',
+                        data: {
+                            locale: locale,
+                            key: key,
+                            value: value,
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(res) {
+                        }
+                    })
+                },
+                type: 'textarea',
+                mode: 'inline',
+                send: 'always', /* Always send, because we have no 'pk' which editable expects */
+                inputclass: 'translation_input'
+            });
+        });
+    </script>
     <script type="text/javascript">
         $( document ).ready(function() {
             $(document).keypressAction({
