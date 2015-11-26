@@ -21,6 +21,8 @@ class TranslationController extends AdminBaseController
 
         $this->translation = $translation;
         $this->translationsService = $translationsService;
+        $this->assetPipeline->requireJs('bootstrap-editable.js');
+        $this->assetPipeline->requireCss('bootstrap-editable.css');
     }
 
     /**
