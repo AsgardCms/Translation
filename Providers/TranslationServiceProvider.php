@@ -33,7 +33,9 @@ class TranslationServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->registerCustomTranslator();
+        if (true === config('asgard.translation.config.translations-gui')) {
+            $this->registerCustomTranslator();
+        }
     }
 
     /**
