@@ -62,14 +62,6 @@
     </div>
 @stop
 
-@section('footer')
-    <a data-toggle="modal" data-target="#keyboardShortcutsModal"><i class="fa fa-keyboard-o"></i></a> &nbsp;
-@stop
-@section('shortcuts')
-    <dl class="dl-horizontal">
-    </dl>
-@stop
-
 @section('scripts')
     <script>
         $(function() {
@@ -101,14 +93,6 @@
                 mode: 'inline',
                 send: 'always', /* Always send, because we have no 'pk' which editable expects */
                 inputclass: 'translation_input'
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $( document ).ready(function() {
-            $(document).keypressAction({
-                actions: [
-                ]
             });
         });
     </script>
