@@ -50,7 +50,7 @@ class FileTranslationRepository implements FileTranslationRepositoryInterface
      */
     private function getLanguageFrom($relativePath)
     {
-        return substr(strrchr($relativePath, "/"), 1);
+        return substr(strrchr($relativePath, DIRECTORY_SEPARATOR), 1);
     }
 
     /**
@@ -59,12 +59,12 @@ class FileTranslationRepository implements FileTranslationRepositoryInterface
      */
     private function getModuleFrom($relativePath)
     {
-        return explode('/', $relativePath)[0];
+        return explode(DIRECTORY_SEPARATOR, $relativePath)[0];
     }
 
     private function getFileNameFrom($path)
     {
-        $fileName = substr(strrchr($path, "/"), 1);
+        $fileName = substr(strrchr($path, DIRECTORY_SEPARATOR), 1);
 
         return str_replace('.php', '', $fileName);
     }
