@@ -18,4 +18,5 @@ return [
     'additional confirm email message' => 'We may need to send you critical information about our service and it is important that we have an accurate email address.',
     'confirm email button' => 'Confirm email address',
     'end greeting' => 'The team',
+    'sign in welcome message' => 'Sign in to start your session',
 ];
