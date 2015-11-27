@@ -29,6 +29,9 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
      */
     public function extendWith(Menu $menu)
     {
+        if (false === config('asgard.translation.config.translations-gui')) {
+            return $menu;
+        }
         $menu->group(trans('core::sidebar.content'), function (Group $group) {
             $group->item(trans('translation::translations.title.translations'), function (Item $item) {
                 $item->icon('fa fa-copy');
