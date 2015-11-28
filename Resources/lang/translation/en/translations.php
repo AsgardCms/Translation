@@ -19,4 +19,5 @@ return [
     'Clear translation cache' => 'Clear translations cache',
     'Export' => 'Export',
     'only for developers' => 'Will require git management!',
+    'Translations exported' => 'Translations exported. Don\'t forget to add them to GIT!',
 ];
