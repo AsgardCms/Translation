@@ -17,4 +17,6 @@ return [
     'validation' => [
     ],
     'Clear translation cache' => 'Clear translations cache',
+    'Export' => 'Export',
+    'only for developers' => 'Will require git management!',
 ];
