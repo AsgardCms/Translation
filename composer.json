@@ -7,7 +7,6 @@
         "php": ">=5.5",
         "composer/installers": "~1.0",
         "asgardcms/core-module": "~1.0",
-        "maatwebsite/excel": "~2.0.0",
         "league/csv": "~7.2.0"
     },
     "require-dev": {
