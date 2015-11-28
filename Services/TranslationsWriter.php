@@ -3,7 +3,7 @@
 use Illuminate\Filesystem\Filesystem;
 use Modules\Translation\ValueObjects\TranslationGroup;
 
-class TranslationsExporter
+class TranslationsWriter
 {
     /**
      * @var Filesystem
