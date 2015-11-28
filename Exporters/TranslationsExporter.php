@@ -1,9 +1,9 @@
 <?php namespace Modules\Translation\Exporters;
 
-use Maatwebsite\Excel\Classes\LaravelExcelWorksheet;
 use Maatwebsite\Excel\Excel;
-use Maatwebsite\Excel\Writers\LaravelExcelWriter;
 use Modules\Translation\Services\TranslationsService;
+use League\Csv\Writer;
+use SplTempFileObject;
 
 class TranslationsExporter
 {
@@ -26,20 +26,25 @@ class TranslationsExporter
     public function export()
     {
         $data = $this->formatData();
+        $keys = array_keys($data[0]);
 
-        $this->excel->create($this->getFileName(), function (LaravelExcelWriter $excel) use ($data) {
-            $excel->sheet($this->filename, function (LaravelExcelWorksheet $sheet) use ($data) {
-                $sheet->fromArray($data);
-                $sheet->freezeFirstRow();
-            });
-        })->export('csv');
+        $csv = Writer::createFromFileObject(new SplTempFileObject());
+        $csv->insertOne($keys);
+        $csv->insertAll($data);
+        $csv->output($this->getFileName());
     }
 
+    /**
+     * @return string
+     */
     private function getFileName()
     {
-        return $this->filename . time();
+        return $this->filename . time() . '.csv';
     }
 
+    /**
+     * @return array
+     */
     private function formatData()
     {
         $translations = $this->translations->getFileAndDatabaseMergedTranslations();
