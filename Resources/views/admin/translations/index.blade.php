@@ -34,7 +34,7 @@
                         </thead>
                         <tbody>
                         <?php if (isset($translations)): ?>
-                        <?php foreach ($translations as $key => $translationGroup): ?>
+                        <?php foreach ($translations->all() as $key => $translationGroup): ?>
                         <tr>
                             <td>{{ $key }}</td>
                             <?php foreach (config('laravellocalization.supportedLocales') as $locale => $language): ?>
