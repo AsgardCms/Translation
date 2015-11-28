@@ -32,14 +32,7 @@ class TranslationController extends AdminBaseController
      */
     public function index()
     {
-        $translationsRaw = $this->translationsService->getFileAndDatabaseMergedTranslations();
-
-        $translations = [];
-        foreach ($translationsRaw as $locale => $translationGroup) {
-            foreach ($translationGroup as $key => $translation) {
-                $translations[$key][$locale] = $translation;
-            }
-        }
+        $translations = $this->translationsService->getFileAndDatabaseMergedTranslations();
 
         return view('translation::admin.translations.index', compact('translations'));
     }
