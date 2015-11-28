@@ -36,15 +36,30 @@ class TranslationsService
             }
         }
 
+        $this->filterOnlyActiveLocales($allFileTranslations);
+
+        return $allFileTranslations;
+    }
+
+    /**
+     * Filter out the non-active locales
+     * @param array $allFileTranslations
+     */
+    private function filterOnlyActiveLocales(array &$allFileTranslations)
+    {
         $activeLocales = $this->getActiveLocales();
+
         foreach ($allFileTranslations as $locale => $value) {
             if (! in_array($locale, $activeLocales)) {
                 unset($allFileTranslations[$locale]);
             }
         }
-        return $allFileTranslations;
     }
 
+    /**
+     * Get the currently active locales
+     * @return array
+     */
     private function getActiveLocales()
     {
         $locales = [];
