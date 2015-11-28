@@ -18,6 +18,9 @@ return [
     ],
     'Clear translation cache' => 'Clear translations cache',
     'Export' => 'Export',
+    'Import' => 'Import',
+    'Import csv translations file' => 'Import csv translations file',
     'only for developers' => 'Will require git management!',
-    'Translations exported' => 'Translations exported. Don\'t forget to add them to GIT!',
+    'Translations exported' => 'Translations exported.',
+    'Translations imported' => 'Translations imported.',
 ];
