@@ -16,4 +16,5 @@ return [
     ],
     'validation' => [
     ],
+    'Clear translation cache' => 'Clear translations cache',
 ];
