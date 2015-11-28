@@ -23,4 +23,6 @@ return [
     'only for developers' => 'Will require git management!',
     'Translations exported' => 'Translations exported.',
     'Translations imported' => 'Translations imported.',
+    'select CSV file' => 'Select CSV file ...',
+    'csv only allowed' => 'Please upload a CSV file only.',
 ];
