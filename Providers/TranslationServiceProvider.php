@@ -1,5 +1,6 @@
 <?php namespace Modules\Translation\Providers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Composers\CurrentUserViewComposer;
 use Modules\Translation\Console\BuildTranslationsCacheCommand;
@@ -38,6 +39,7 @@ class TranslationServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->registerValidators();
         if (true === config('asgard.translation.config.translations-gui')) {
             $this->registerCustomTranslator();
         }
@@ -87,6 +89,17 @@ class TranslationServiceProvider extends ServiceProvider
             $trans->setFallback($app['config']['app.fallback_locale']);
 
             return $trans;
+        });
+    }
+
+    private function registerValidators()
+    {
+        Validator::extend('extensions', function ($attribute, $value, $parameters) {
+            return in_array($value->getClientOriginalExtension(), $parameters);
+        });
+
+        Validator::replacer('extensions', function ($message, $attribute, $rule, $parameters) {
+            return str_replace([':attribute', ':values'], [$attribute, implode(',', $parameters)], $message);
         });
     }
 }
