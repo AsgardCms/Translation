@@ -1,6 +1,9 @@
 <?php namespace Modules\Translation\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
+use Modules\Translation\Exporters\TranslationsExporter;
+use Modules\Translation\Importers\TranslationsImporter;
 use Modules\Translation\Services\TranslationsService;
 use Pingpong\Modules\Facades\Module;
 
@@ -29,6 +32,20 @@ class TranslationController extends AdminBaseController
         $translations = $this->translationsService->getFileAndDatabaseMergedTranslations();
 
         return view('translation::admin.translations.index', compact('translations'));
+    }
+
+    public function export(TranslationsExporter $exporter)
+    {
+        $exporter->export();
+
+        return redirect()->route('admin.translation.translation.index')->withSuccess(trans('translation::translations.Translations exported'));
+    }
+
+    public function import(Request $request, TranslationsImporter $importer)
+    {
+        $importer->import($request->file('file'));
+
+        return redirect()->route('admin.translation.translation.index')->withSuccess(trans('translation::translations.Translations imported'));
     }
 
     private function requireAssets()
