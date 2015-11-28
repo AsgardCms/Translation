@@ -1,26 +1,20 @@
 <?php namespace Modules\Translation\Http\Controllers\Admin;
 
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
-use Modules\Translation\Repositories\TranslationRepository;
 use Modules\Translation\Services\TranslationsService;
 use Pingpong\Modules\Facades\Module;
 
 class TranslationController extends AdminBaseController
 {
     /**
-     * @var TranslationRepository
-     */
-    private $translation;
-    /**
      * @var TranslationsService
      */
     private $translationsService;
 
-    public function __construct(TranslationRepository $translation, TranslationsService $translationsService)
+    public function __construct(TranslationsService $translationsService)
     {
         parent::__construct();
 
-        $this->translation = $translation;
         $this->translationsService = $translationsService;
         $this->requireAssets();
     }
