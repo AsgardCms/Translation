@@ -47,4 +47,16 @@ class EloquentTranslationRepository extends EloquentBaseRepository implements Tr
     {
         return $this->model->firstOrCreate(['key' => $key]);
     }
+
+    /**
+     * Update the given translation key with the given data
+     * @param string $key
+     * @param array $data
+     * @return mixed
+     */
+    public function updateFromImport($key, array $data)
+    {
+        $translation = $this->findTranslationByKey($key);
+        $translation->update($data);
+    }
 }

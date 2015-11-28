@@ -56,4 +56,17 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
                 }
             );
     }
+
+    /**
+     * Update the given translation key with the given data
+     * @param string $key
+     * @param array $data
+     * @return mixed
+     */
+    public function updateFromImport($key, array $data)
+    {
+        $this->cache->tags($this->entityName)->flush();
+
+        return $this->repository->updateFromImport($key, $data);
+    }
 }
