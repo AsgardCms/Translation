@@ -16,6 +16,8 @@
             <div class="row">
                 <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
                     <a href="" class="btn btn-flat btn-primary jsClearTranslationCache"><i class="fa fa-refresh"></i> {{ trans('translation::translations.Clear translation cache') }}</a>
+                    <a href="{{ route('admin.translation.translation.export') }}" class="btn btn-info">{{ trans('translation::translations.Export') }}</a>
+                    <a data-toggle="modal" data-target="#ImportModal" class="btn btn-info">{{ trans('translation::translations.Import') }}</a>
                 </div>
             </div>
             <div class="box box-primary">
@@ -61,9 +63,41 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="ImportModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">{{ trans('translation::translations.Import csv translations file') }}</h4>
+                </div>
+                {!! Form::open(['route' => 'admin.translation.translation.import', 'method' => 'post', 'files' => true]) !!}
+                <div class="modal-body">
+                    <div class="form-group {{ $errors->has('file') ? 'has-error' : '' }}">
+                        <label for="file">{{ trans('translation::translations.select CSV file') }}</label>
+                        <input type="file" name="file">
+                        {!! $errors->first('file', '<span class="help-block">:message</span>') !!}
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('core::core.button.cancel') }}</button>
+                    <button class="btn btn-primary" type="submit">{{ trans('translation::translations.Import') }}</button>
+                </div>
+                {!! Form::close() !!}
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 @stop
 
 @section('scripts')
+    <?php if ($errors->has('file')): ?>
+    <script>
+        $( document ).ready(function() {
+            $('#ImportModal').modal('show');
+        });
+    </script>
+    <?php endif; ?>
     <script>
         $( document ).ready(function() {
             $('.jsClearTranslationCache').on('click',function (event) {
