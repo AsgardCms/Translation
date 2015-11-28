@@ -36,17 +36,10 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
             $group->item(trans('translation::translations.title.translations'), function (Item $item) {
                 $item->icon('fa fa-globe');
                 $item->weight(10);
+                $item->route('admin.translation.translation.index');
                 $item->authorize(
                     $this->auth->hasAccess('translation.translations.index')
                 );
-                $item->item(trans('translation::translations.title.translations'), function (Item $item) {
-                    $item->icon('fa fa-globe');
-                    $item->weight(0);
-                    $item->route('admin.translation.translation.index');
-                    $item->authorize(
-                        $this->auth->hasAccess('translation.translations.index')
-                    );
-                });
             });
         });
 
