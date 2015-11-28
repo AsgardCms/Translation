@@ -5,13 +5,13 @@ use Illuminate\Support\Collection;
 class TranslationGroup
 {
     /**
-     * @var Collection
+     * @var array
      */
     private $translations;
 
     public function __construct(array $translations)
     {
-        $this->translations = $this->reArrangeTranslations($translations);
+        $this->translations = $translations;
     }
 
     /**
@@ -36,6 +36,15 @@ class TranslationGroup
      * @return Collection
      */
     public function all()
+    {
+        return $this->reArrangeTranslations($this->translations);;
+    }
+
+    /**
+     * Return the raw translations
+     * @return array
+     */
+    public function allRaw()
     {
         return $this->translations;
     }
