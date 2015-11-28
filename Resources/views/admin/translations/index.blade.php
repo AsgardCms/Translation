@@ -15,6 +15,7 @@
         <div class="col-xs-12">
             <div class="row">
                 <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
+                    <a href="" class="btn btn-flat btn-primary jsClearTranslationCache"><i class="fa fa-refresh"></i> {{ trans('translation::translations.Clear translation cache') }}</a>
                 </div>
             </div>
             <div class="box box-primary">
@@ -64,6 +65,21 @@
 
 @section('scripts')
     <script>
+        $( document ).ready(function() {
+            $('.jsClearTranslationCache').on('click',function (event) {
+                event.preventDefault();
+                var $self = $(this);
+                $self.find('i').toggleClass('fa-spin');
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('api.translation.translations.clearCache') }}',
+                    data: {_token: '{{ csrf_token() }}'},
+                    success: function() {
+                        $self.find('i').toggleClass('fa-spin');
+                    }
+                });
+            });
+        });
         $(function() {
             $('a.translation').editable({
                 url: function(params) {

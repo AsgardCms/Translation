@@ -24,4 +24,9 @@ class TranslationController extends Controller
             $request->get('value')
         );
     }
+
+    public function clearCache()
+    {
+        $this->translation->clearCache();
+    }
 }
