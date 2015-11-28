@@ -2,6 +2,7 @@
 
 use Modules\Translation\Repositories\FileTranslationRepository;
 use Modules\Translation\Repositories\TranslationRepository;
+use Modules\Translation\ValueObjects\TranslationGroup;
 
 class TranslationsService
 {
@@ -22,7 +23,7 @@ class TranslationsService
 
     /**
      * Get the file translations & the database translations, overwrite the file translations by db translations
-     * @return array
+     * @return TranslationGroup
      */
     public function getFileAndDatabaseMergedTranslations()
     {
@@ -38,7 +39,7 @@ class TranslationsService
 
         $this->filterOnlyActiveLocales($allFileTranslations);
 
-        return $allFileTranslations;
+        return new TranslationGroup($allFileTranslations);
     }
 
     /**
