@@ -6,12 +6,9 @@ use Modules\Core\Composers\CurrentUserViewComposer;
 use Modules\Translation\Console\BuildTranslationsCacheCommand;
 use Modules\Translation\Entities\Translation;
 use Modules\Translation\Repositories\Cache\CacheTranslationDecorator;
-use Modules\Translation\Repositories\Cache\CacheTranslationRepository;
-use Modules\Translation\Repositories\CacheTranslation;
-use Modules\Translation\Repositories\DatabaseTranslationRepository;
 use Modules\Translation\Repositories\Eloquent\EloquentTranslationRepository;
-use Modules\Translation\Repositories\FileTranslationRepository;
 use Modules\Translation\Repositories\File\FileTranslationRepository as FileDiskTranslationRepository;
+use Modules\Translation\Repositories\FileTranslationRepository;
 use Modules\Translation\Repositories\TranslationRepository;
 use Modules\Translation\Services\Translator;
 

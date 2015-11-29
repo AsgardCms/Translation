@@ -32,8 +32,8 @@ class TranslationsWriter
         foreach ($tree as $locale => $groups) {
             foreach ($groups as $moduleName => $fileGroup) {
                 foreach ($fileGroup as $file => $data) {
-                    $path = $this->getTranslationsDirectory() . $moduleName . '/' . $locale . '/'. $file . '.php';
-                    $output = "<?php\n\nreturn ".var_export($data, true).";\n";
+                    $path = $this->getTranslationsDirectory() . $moduleName . '/' . $locale . '/' . $file . '.php';
+                    $output = "<?php\n\nreturn " . var_export($data, true) . ";\n";
                     $this->finder->put($path, $output);
                 }
             }

@@ -20,7 +20,7 @@ class CreateTranslationTranslationTranslationsTable extends Migration
             $table->integer('translation_id')->unsigned();
             $table->string('locale')->index();
             $table->unique(['translation_id', 'locale'], 'translations_trans_id_locale_unique');
-            $table->foreign('translation_id' )->references('id')->on('translation__translations')->onDelete('cascade');
+            $table->foreign('translation_id')->references('id')->on('translation__translations')->onDelete('cascade');
         });
     }
 

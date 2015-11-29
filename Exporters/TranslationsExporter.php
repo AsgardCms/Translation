@@ -1,8 +1,8 @@
 <?php namespace Modules\Translation\Exporters;
 
+use League\Csv\Writer;
 use Maatwebsite\Excel\Excel;
 use Modules\Translation\Services\TranslationsService;
-use League\Csv\Writer;
 use SplTempFileObject;
 
 class TranslationsExporter
@@ -54,6 +54,7 @@ class TranslationsExporter
         foreach ($translations as $key => $translation) {
             $data[] = array_merge(['key' => $key], $translation);
         }
+
         return $data;
     }
 }

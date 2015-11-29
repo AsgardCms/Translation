@@ -39,7 +39,6 @@ class TranslationsService
             }
         }
 
-
         $this->addDatabaseOnlyTranslations($allFileTranslations, $allDatabaseTranslations);
         $this->filterOnlyActiveLocales($allFileTranslations);
 

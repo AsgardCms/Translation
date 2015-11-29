@@ -2,7 +2,6 @@
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Modules\Translation\Events\TranslationNotFoundInCache;
-use Modules\Translation\Repositories\CacheTranslation;
 use Modules\Translation\Repositories\TranslationRepository;
 
 class Translator extends \Illuminate\Translation\Translator
@@ -60,6 +59,7 @@ class Translator extends \Illuminate\Translation\Translator
         if ($this->cacheRebuildQueued === false) {
             return true;
         }
+
         return false;
     }
     /**
@@ -72,6 +72,7 @@ class Translator extends \Illuminate\Translation\Translator
     protected function isTranslationCachedInEnglish($key)
     {
         $translation = parent::get($key, [], 'en');
+
         return $key !== $translation;
     }
 }

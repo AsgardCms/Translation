@@ -37,7 +37,7 @@ class TranslationGroup
      */
     public function all()
     {
-        return $this->reArrangeTranslations($this->translations);;
+        return $this->reArrangeTranslations($this->translations);
     }
 
     /**

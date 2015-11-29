@@ -33,6 +33,7 @@ class EloquentTranslationRepository extends EloquentBaseRepository implements Tr
                 }
             }
         }
+
         return $allDatabaseTranslations;
     }
 
