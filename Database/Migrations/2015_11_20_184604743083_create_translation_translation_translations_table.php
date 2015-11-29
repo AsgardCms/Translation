@@ -15,7 +15,7 @@ class CreateTranslationTranslationTranslationsTable extends Migration
         Schema::create('translation__translation_translations', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('value');
+            $table->text('value');
 
             $table->integer('translation_id')->unsigned();
             $table->string('locale')->index();
