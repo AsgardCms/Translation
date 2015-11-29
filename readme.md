@@ -1,6 +1,9 @@
 # Translation Module
 
 [![Latest Version](https://img.shields.io/packagist/v/asgardcms/translation-module.svg?style=flat-square)](https://github.com/asgardcms/translation/releases)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Quality Score](https://img.shields.io/scrutinizer/g/asgardcms/translation.svg?style=flat-square)](https://scrutinizer-ci.com/g/asgardcms/translation)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/58772b5c-d8d1-45c7-a1a6-cbd05f2d0c3c.svg)](https://insight.sensiolabs.com/projects/58772b5c-d8d1-45c7-a1a6-cbd05f2d0c3c)
 
 [![Total Downloads](https://img.shields.io/packagist/dd/asgardcms/translation-module.svg?style=flat-square)](https://packagist.org/packages/asgardcms/translation-module)
 [![Total Downloads](https://img.shields.io/packagist/dm/asgardcms/translation-module.svg?style=flat-square)](https://packagist.org/packages/asgardcms/translation-module)
