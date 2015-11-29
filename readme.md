@@ -17,3 +17,29 @@ Contains all the translations files for the AsgardCms Modules.
 ```
 composer require asgardcms/translation-module
 ```
+
+#### Publish the configuration
+
+```
+php artisan module:publish translation
+```
+
+The configuration has one option: `translations-gui` which you can set to a boolean value. Setting this to true will have a *slight* performance hit, but it will give you (and your client) the possibility to edit static translations via a GUI. 
+
+If you don't have that need, set this to false.
+
+
+#### Permissions
+
+Don't forget to give yourself the permissions to the translation module if you have enabled the `translations-gui` option.
+
+
+#### Missing assets ? Publish the assets.
+
+If you haven't altered the post-update scripts in the composer file, it will publish the translation module assets to the public folder.
+
+However if you did alter it, or you're getting an `AssetNotFound` exception, you can publish those assets manually using the following command:
+
+```
+php artisan module:publish translation
+```
