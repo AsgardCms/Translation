@@ -1,7 +1,6 @@
 <?php namespace Modules\Translation\Exporters;
 
 use League\Csv\Writer;
-use Maatwebsite\Excel\Excel;
 use Modules\Translation\Services\TranslationsService;
 use SplTempFileObject;
 
@@ -11,16 +10,11 @@ class TranslationsExporter
      * @var TranslationsService
      */
     private $translations;
-    /**
-     * @var Excel
-     */
-    private $excel;
     private $filename = 'translations_';
 
-    public function __construct(TranslationsService $translations, Excel $excel)
+    public function __construct(TranslationsService $translations)
     {
         $this->translations = $translations;
-        $this->excel = $excel;
     }
 
     public function export()
