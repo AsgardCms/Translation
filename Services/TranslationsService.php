@@ -29,14 +29,18 @@ class TranslationsService
     {
         $allFileTranslations = $this->fileTranslations->all();
         $allDatabaseTranslations = $this->databaseTranslations->allFormatted();
+
         foreach ($allFileTranslations as $locale => $fileTranslation) {
             foreach ($fileTranslation as $key => $translation) {
                 if (isset($allDatabaseTranslations[$locale][$key])) {
                     $allFileTranslations[$locale][$key] = $allDatabaseTranslations[$locale][$key];
+                    unset($allDatabaseTranslations[$locale][$key]);
                 }
             }
         }
 
+
+        $this->addDatabaseOnlyTranslations($allFileTranslations, $allDatabaseTranslations);
         $this->filterOnlyActiveLocales($allFileTranslations);
 
         return new TranslationGroup($allFileTranslations);
@@ -70,5 +74,18 @@ class TranslationsService
         }
 
         return $locales;
+    }
+
+    /**
+     * @param array $allFileTranslations
+     * @param array $allDatabaseTranslations
+     */
+    private function addDatabaseOnlyTranslations(array &$allFileTranslations, array $allDatabaseTranslations)
+    {
+        foreach ($allDatabaseTranslations as $locale => $group) {
+            foreach ($group as $key => $value) {
+                $allFileTranslations[$locale][$key] = $value;
+            }
+        }
     }
 }
