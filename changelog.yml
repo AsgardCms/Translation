@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.2.1":
+        added:
+            - Adding the venturecraft/revisionable package
     "1.2.0":
         added:
             - Edit translations via a web GUI
