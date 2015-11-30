@@ -13,7 +13,6 @@ class TranslationTranslation extends Model
     protected $revisionEnabled = true;
     protected $revisionCleanup = true;
     protected $historyLimit = 100;
-    protected $revisionCreationsEnabled = true;
 
     public static function boot()
     {
