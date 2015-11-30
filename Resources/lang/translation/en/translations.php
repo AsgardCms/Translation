@@ -25,6 +25,7 @@ return [
     'Translations imported' => 'Translations imported.',
     'select CSV file' => 'Select CSV file ...',
     'csv only allowed' => 'Please upload a CSV file only.',
-    'history created translation' => '<li>:name created this translation :time</li>',
-    'history edited translation' => '<li>:name changed the value from <strong>:oldValue</strong> <a href=""><i class="fa fa-history"></i></a> to <strong>:newValue</strong>, :time</li>',
+    'time' => 'Time',
+    'author' => 'Author',
+    'history' => 'History',
 ];
