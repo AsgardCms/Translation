@@ -21,15 +21,14 @@ Contains all the translations files for the AsgardCms Modules.
 composer require asgardcms/translation-module
 ```
 
-#### Publish the configuration
+#### Optional configuration
 
-```
-php artisan module:publish translation
-```
 
 The configuration has one option: `translations-gui` which you can set to a boolean value. Setting this to true will have a *slight* performance hit, but it will give you (and your client) the possibility to edit static translations via a GUI. 
 
 If you don't have that need, set this to false.
+
+**Note: This configuraiton key is in `app.php` config file.**
 
 
 #### Permissions
