@@ -1,6 +1,7 @@
 <?php namespace Modules\Translation\Repositories\File;
 
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Translation\LoaderInterface;
 use Modules\Translation\Repositories\FileTranslationRepository as FileTranslationRepositoryInterface;
 
 class FileTranslationRepository implements FileTranslationRepositoryInterface
@@ -9,10 +10,15 @@ class FileTranslationRepository implements FileTranslationRepositoryInterface
      * @var Filesystem
      */
     private $finder;
+    /**
+     * @var LoaderInterface
+     */
+    private $loader;
 
-    public function __construct(Filesystem $finder)
+    public function __construct(Filesystem $finder, LoaderInterface $loader)
     {
         $this->finder = $finder;
+        $this->loader = $loader;
     }
 
     /**
@@ -21,51 +27,47 @@ class FileTranslationRepository implements FileTranslationRepositoryInterface
      */
     public function all()
     {
-        $allFileTranslations = [];
-        $files = $this->finder->allFiles($this->getTranslationsDirectory());
-        foreach ($files as $file) {
-            $lang = $this->getLanguageFrom($file->getRelativePath());
-            $path = $file->getRelativePathname();
-            $contents = $this->finder->getRequire($this->getTranslationsDirectory() . '/' . $path);
-            $trans = array_dot($contents, $this->getModuleFrom($file->getRelativePath()) . '::' . $this->getFileNameFrom($path) . '.');
-            foreach ($trans as $key => $value) {
-                $allFileTranslations[$lang][$key] = $value;
+        $files = $this->getTranslationFilenamesFromPaths($this->loader->paths());
+
+        $translations = [];
+
+        foreach ($files as $locale => $files) {
+            foreach ($files as $namespace => $file) {
+                $trans = $this->finder->getRequire($file);
+                $trans = array_dot($trans);
+
+                foreach ($trans as $key => $value) {
+                    $translations[$locale]["{$namespace}.{$key}"] = $value;
+                }
             }
         }
 
-        return $allFileTranslations;
+        return $translations;
     }
 
     /**
-     * @return string
+     * Get all of the names of the Translations files from an array of Paths.
+     * Returns [ 'translationkeyprefix' => 'filepath' ]
+     * @param array $paths
+     * @return array
      */
-    private function getTranslationsDirectory()
+    protected function getTranslationFilenamesFromPaths(array $paths)
     {
-        return __DIR__ . '/../../Resources/lang';
-    }
+        $files   = [];
+        $locales = config('laravellocalization.supportedLocales');
 
-    /**
-     * @param string $relativePath
-     * @return string
-     */
-    private function getLanguageFrom($relativePath)
-    {
-        return substr(strrchr($relativePath, DIRECTORY_SEPARATOR), 1);
-    }
+        foreach ($paths as $hint => $path) {
+            foreach ($locales as $locale => $language) {
+                foreach ($this->finder->glob("{$path}/{$locale}/*.php") as $file) {
+                    $category = str_replace(["$path/", ".php", "{$locale}/"], "", $file);
+                    $category = str_replace("/", ".", $category);
+                    $category = !is_int($hint) ? "{$hint}::{$category}" : $category;
 
-    /**
-     * @param string $relativePath
-     * @return string
-     */
-    private function getModuleFrom($relativePath)
-    {
-        return explode(DIRECTORY_SEPARATOR, $relativePath)[0];
-    }
+                    $files[$locale][$category] = $file;
+                }
+            }
+        }
 
-    private function getFileNameFrom($path)
-    {
-        $fileName = substr(strrchr($path, DIRECTORY_SEPARATOR), 1);
-
-        return str_replace('.php', '', $fileName);
+        return $files;
     }
 }
