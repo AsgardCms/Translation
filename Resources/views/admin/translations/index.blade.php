@@ -99,7 +99,17 @@
                     <h4 class="modal-title" id="delete-confirmation-title">History for: keyname</h4>
                 </div>
                 <div class="modal-body">
-                    <ul class="history"></ul>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{ trans('translation::translations.history') }}</th>
+                                <th>{{ trans('translation::translations.author') }}</th>
+                                <th>{{ trans('translation::translations.time') }}</th>
+                                <th>{{ trans('core::core.table.actions') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody class="history"></tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn btn-default" data-dismiss="modal">{{ trans('core::core.button.cancel') }}</button>
