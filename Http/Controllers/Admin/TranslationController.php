@@ -1,9 +1,12 @@
 <?php namespace Modules\Translation\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
+use Modules\Translation\Entities\TranslationTranslation;
 use Modules\Translation\Exporters\TranslationsExporter;
 use Modules\Translation\Http\Requests\ImportTranslationsRequest;
 use Modules\Translation\Importers\TranslationsImporter;
+use Modules\Translation\Repositories\TranslationRepository;
 use Modules\Translation\Services\TranslationsService;
 use Pingpong\Modules\Facades\Module;
 
@@ -13,12 +16,17 @@ class TranslationController extends AdminBaseController
      * @var TranslationsService
      */
     private $translationsService;
+    /**
+     * @var TranslationRepository
+     */
+    private $translation;
 
-    public function __construct(TranslationsService $translationsService)
+    public function __construct(TranslationsService $translationsService, TranslationRepository $translation)
     {
         parent::__construct();
 
         $this->translationsService = $translationsService;
+        $this->translation = $translation;
         $this->requireAssets();
     }
 
@@ -32,6 +40,13 @@ class TranslationController extends AdminBaseController
         $translations = $this->translationsService->getFileAndDatabaseMergedTranslations();
 
         return view('translation::admin.translations.index', compact('translations'));
+    }
+
+    public function update(TranslationTranslation $translationTranslation, Request $request)
+    {
+        $this->translation->updateTranslationToValue($translationTranslation, $request->get('oldValue'));
+
+        return redirect()->route('admin.translation.translation.index')->withSuccess('Translation saved.');
     }
 
     public function export(TranslationsExporter $exporter)
