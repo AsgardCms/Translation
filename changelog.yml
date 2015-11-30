@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.3.0":
+        changed:
+            - Updating the file implementation to read the locations of translations directly from laravel's loader
+            - Moved the <code>TranslationServiceProvider</code> definition to the Core module
+            - Defined a custom <code>TranslationLoader</code> class
     "1.2.1":
         added:
             - Adding the venturecraft/revisionable package
