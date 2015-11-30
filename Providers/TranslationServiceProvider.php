@@ -12,6 +12,7 @@ use Modules\Translation\Repositories\FileTranslationRepository;
 use Modules\Translation\Repositories\TranslationRepository;
 use Modules\Translation\Services\TranslationLoader;
 use Modules\Translation\Services\Translator;
+use Schema;
 
 class TranslationServiceProvider extends ServiceProvider
 {
@@ -38,9 +39,27 @@ class TranslationServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerValidators();
-        if (true === config('app.translations-gui')) {
+
+        if ($this->shouldRegisterCustomTranslator()) {
             $this->registerCustomTranslator();
         }
+    }
+
+    /**
+     * Should we register the Custom Translator?
+     * @return bool
+     */
+    protected function shouldRegisterCustomTranslator()
+    {
+        if (config('app.translations-gui', true) === false) {
+            return false;
+        }
+
+        if (Schema::hasTable((new Translation)->getTable()) === false) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
