@@ -7,7 +7,6 @@
     "active": 1,
     "order": 1,
     "providers": [
-        "Modules\\Translation\\Providers\\TranslationServiceProvider",
         "Modules\\Translation\\Providers\\RouteServiceProvider"
     ],
     "aliases":{},
