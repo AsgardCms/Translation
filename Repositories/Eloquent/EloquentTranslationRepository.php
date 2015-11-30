@@ -1,6 +1,7 @@
 <?php namespace Modules\Translation\Repositories\Eloquent;
 
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
+use Modules\Translation\Entities\TranslationTranslation;
 use Modules\Translation\Repositories\TranslationRepository;
 
 class EloquentTranslationRepository extends EloquentBaseRepository implements TranslationRepository
@@ -59,5 +60,17 @@ class EloquentTranslationRepository extends EloquentBaseRepository implements Tr
     {
         $translation = $this->findTranslationByKey($key);
         $translation->update($data);
+    }
+
+    /**
+     * Set the given value on the given TranslationTranslation
+     * @param TranslationTranslation $translationTranslation
+     * @param string $value
+     * @return void
+     */
+    public function updateTranslationToValue(TranslationTranslation $translationTranslation, $value)
+    {
+        $translationTranslation->value = $value;
+        $translationTranslation->save();
     }
 }

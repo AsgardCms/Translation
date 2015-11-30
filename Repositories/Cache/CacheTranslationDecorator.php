@@ -1,6 +1,7 @@
 <?php namespace Modules\Translation\Repositories\Cache;
 
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
+use Modules\Translation\Entities\TranslationTranslation;
 use Modules\Translation\Repositories\TranslationRepository;
 
 class CacheTranslationDecorator extends BaseCacheDecorator implements TranslationRepository
@@ -68,5 +69,18 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
         $this->cache->tags($this->entityName)->flush();
 
         return $this->repository->updateFromImport($key, $data);
+    }
+
+    /**
+     * Set the given value on the given TranslationTranslation
+     * @param TranslationTranslation $translationTranslation
+     * @param string $value
+     * @return void
+     */
+    public function updateTranslationToValue(TranslationTranslation $translationTranslation, $value)
+    {
+        $this->cache->tags($this->entityName)->flush();
+
+        return $this->repository->updateTranslationToValue($translationTranslation, $value);
     }
 }

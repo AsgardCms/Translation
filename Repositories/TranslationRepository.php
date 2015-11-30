@@ -1,6 +1,7 @@
 <?php namespace Modules\Translation\Repositories;
 
 use Modules\Core\Repositories\BaseRepository;
+use Modules\Translation\Entities\TranslationTranslation;
 
 interface TranslationRepository extends BaseRepository
 {
@@ -37,4 +38,12 @@ interface TranslationRepository extends BaseRepository
      * @return mixed
      */
     public function updateFromImport($key, array $data);
+
+    /**
+     * Set the given value on the given TranslationTranslation
+     * @param TranslationTranslation $translationTranslation
+     * @param string $value
+     * @return void
+     */
+    public function updateTranslationToValue(TranslationTranslation $translationTranslation, $value);
 }
