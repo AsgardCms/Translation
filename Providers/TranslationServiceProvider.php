@@ -51,11 +51,11 @@ class TranslationServiceProvider extends ServiceProvider
      */
     protected function shouldRegisterCustomTranslator()
     {
-        if (config('app.translations-gui', true) === false) {
+        if (false === config('app.translations-gui', true)) {
             return false;
         }
 
-        if (Schema::hasTable((new Translation)->getTable()) === false) {
+        if (false === Schema::hasTable((new Translation)->getTable())) {
             return false;
         }
 
