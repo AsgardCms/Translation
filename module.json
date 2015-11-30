@@ -2,7 +2,7 @@
     "name": "Translation",
     "alias": "translation",
     "description": "Module containing all AsgardCms translations",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "keywords": [],
     "active": 1,
     "order": 1,
