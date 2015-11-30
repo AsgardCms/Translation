@@ -45,19 +45,15 @@ class TranslationController extends Controller
 
         foreach ($revisionHistory as $history) {
             $timeAgo = $history->created_at->diffForHumans();
-            if ($history->key == 'created_at' && !$history->old_value) {
-                $formattedHistory[] = trans('translation::translations.history created translation', [
-                    'name' => $history->userResponsible()->first_name,
-                    'time' => $timeAgo,
-                ]);
-            } else {
-                $formattedHistory[] = trans('translation::translations.history edited translation', [
-                    'name' => $history->userResponsible()->first_name,
-                    'oldValue' => $history->oldValue(),
-                    'newValue' => $history->newValue(),
-                    'time' => $timeAgo,
-                ]);
-            }
+            $revertRoute = route('admin.translation.translation.update', [$history->revisionable_id, 'oldValue' => $history->oldValue()]);
+            $formattedHistory[] = <<<HTML
+<tr>
+    <td>{$history->oldValue()}</td>
+    <td>{$history->userResponsible()->first_name} {$history->userResponsible()->last_name}</td>
+    <td><a data-toggle="tooltip" title="{$history->created_at}">{$timeAgo}</a></td>
+    <td><a href="{$revertRoute}"><i class="fa fa-history"></i></a></td>
+</tr>
+HTML;
         }
 
         return $formattedHistory;
