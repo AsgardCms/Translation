@@ -3,6 +3,9 @@
 use Illuminate\Database\Eloquent\Model;
 use Venturecraft\Revisionable\RevisionableTrait;
 
+/**
+ * @property string value
+ */
 class TranslationTranslation extends Model
 {
     use RevisionableTrait;
