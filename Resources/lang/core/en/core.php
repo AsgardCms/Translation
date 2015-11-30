@@ -20,6 +20,7 @@ return [
         'polish' => 'Polish',
         'portuguese' => 'Portuguese',
         'arabic' => 'Arabic',
+        'macedonian' => 'Македонски',
     ],
     'button' => [
         'cancel' => 'Cancel',
