@@ -40,8 +40,10 @@
                         <tr>
                             <td>{{ $key }}</td>
                             <?php foreach (config('laravellocalization.supportedLocales') as $locale => $language): ?>
-                                <td>
+                                <td style="position:relative;">
                                     <a class="translation" data-pk="{{ $locale }}__-__{{ $key }}">{{ array_get($translationGroup, $locale, null) }}</a>
+                                    <a href="" style="position: absolute; right: 5px;" class="openRevisionModal"
+                                       data-pk="{{ $locale }}__-__{{ $key }}"><i class="fa fa-search-plus"></i></a>
                                 </td>
                             <?php endforeach; ?>
                         </tr>
@@ -88,6 +90,24 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+    <div class="modal fade" id="modal-translation-history" tabindex="-1" role="dialog" aria-labelledby="modal-translation-history" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="delete-confirmation-title">History for: keyname</h4>
+                </div>
+                <div class="modal-body">
+                    <ul class="history"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn btn-default" data-dismiss="modal">{{ trans('core::core.button.cancel') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @stop
 
 @section('scripts')
@@ -99,6 +119,36 @@
     </script>
     <?php endif; ?>
     <script>
+        $( document ).ready(function() {
+            $('.openRevisionModal').on('click', function (event) {
+                event.preventDefault();
+                var modal = $('#modal-translation-history');
+                var splitKey = $(this).data('pk').split("__-__");
+                var locale = splitKey[0];
+                var key = splitKey[1];
+                var title = modal.find('.modal-title').text().replace('keyname', key);
+                modal.find('.modal-title').text(title);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route('api.translation.translations.revisions') }}',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        locale: locale,
+                        key: key
+                    },
+                    success: function(data) {
+                        data.forEach(function(element) {
+                            $('.history').append(element);
+                        });
+                        modal.modal('show');
+                    }
+                });
+            });
+            $('#modal-translation-history').on('hidden.bs.modal', function (event) {
+                $('.history').empty();
+            });
+        });
         $( document ).ready(function() {
             $('.jsClearTranslationCache').on('click',function (event) {
                 event.preventDefault();
