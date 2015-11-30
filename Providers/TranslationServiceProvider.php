@@ -10,6 +10,7 @@ use Modules\Translation\Repositories\Eloquent\EloquentTranslationRepository;
 use Modules\Translation\Repositories\File\FileTranslationRepository as FileDiskTranslationRepository;
 use Modules\Translation\Repositories\FileTranslationRepository;
 use Modules\Translation\Repositories\TranslationRepository;
+use Modules\Translation\Services\TranslationLoader;
 use Modules\Translation\Services\Translator;
 
 class TranslationServiceProvider extends ServiceProvider
@@ -37,7 +38,7 @@ class TranslationServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerValidators();
-        if (true === config('asgard.translation.config.translations-gui')) {
+        if (true === config('app.translations-gui')) {
             $this->registerCustomTranslator();
         }
     }
@@ -61,7 +62,7 @@ class TranslationServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(FileTranslationRepository::class, function ($app) {
-            return new FileDiskTranslationRepository($app['files']);
+            return new FileDiskTranslationRepository($app['files'], $app['translation.loader']);
         });
     }
 
@@ -74,8 +75,12 @@ class TranslationServiceProvider extends ServiceProvider
 
     protected function registerCustomTranslator()
     {
+        $this->app->offsetUnset('translation.loader');
         $this->app->offsetUnset('translator');
 
+        $this->app->singleton('translation.loader', function ($app) {
+            return new TranslationLoader($app['files'], $app['path.lang']);
+        });
         $this->app->singleton('translator', function ($app) {
             $loader = $app['translation.loader'];
 
