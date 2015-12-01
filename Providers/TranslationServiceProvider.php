@@ -55,6 +55,10 @@ class TranslationServiceProvider extends ServiceProvider
             return false;
         }
 
+        if (false === app('asgard.isInstalled')) {
+            return false;
+        }
+
         if (false === Schema::hasTable((new Translation)->getTable())) {
             return false;
         }
