@@ -36,6 +36,10 @@ class TranslationController extends Controller
         $translation = $this->translation->findTranslationByKey($request->get('key'));
         $translation = $translation->translate($request->get('locale'));
 
+        if (null === $translation) {
+            return response()->json(['<tr><td>' . trans('translation::translations.No Revisions yet') . '</td></tr>']);
+        }
+
         return response()->json($this->formatRevisionHistory($translation->revisionHistory));
     }
 

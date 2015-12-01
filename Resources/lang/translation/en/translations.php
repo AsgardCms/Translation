@@ -28,4 +28,5 @@ return [
     'time' => 'Time',
     'author' => 'Author',
     'history' => 'History',
+    'No Revisions yet' => 'No Revisions yet',
 ];
