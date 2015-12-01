@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.5.1":
+        changed:
+            - Adding a case if there are no revisions yet
     "1.5.0":
         changed:
             - Adding an index on the key column of the translations table
