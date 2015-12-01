@@ -1,8 +1,12 @@
 url: https://github.com/AsgardCms/Translation
 versions:
     "1.6.0":
+        added:
+            - Translations revisions now also record the created event
+            - Adding new event column on revisions modal
         changed:
             - Making the history limit amount configurable
+            - Reversing the history array, to show the most up to date revision first
     "1.5.1":
         changed:
             - Adding a case if there are no revisions yet
