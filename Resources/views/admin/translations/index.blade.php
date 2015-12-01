@@ -103,9 +103,10 @@
                         <thead>
                             <tr>
                                 <th>{{ trans('translation::translations.history') }}</th>
-                                <th>{{ trans('translation::translations.author') }}</th>
-                                <th>{{ trans('translation::translations.time') }}</th>
-                                <th>{{ trans('core::core.table.actions') }}</th>
+                                <th width="200px">{{ trans('translation::translations.author') }}</th>
+                                <th width="110px">{{ trans('translation::translations.event') }}</th>
+                                <th width="130px">{{ trans('translation::translations.time') }}</th>
+                                <th width="10px">{{ trans('core::core.table.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody class="history"></tbody>

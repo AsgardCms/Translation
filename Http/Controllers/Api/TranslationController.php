@@ -48,18 +48,45 @@ class TranslationController extends Controller
         $formattedHistory = [];
 
         foreach ($revisionHistory as $history) {
-            $timeAgo = $history->created_at->diffForHumans();
-            $revertRoute = route('admin.translation.translation.update', [$history->revisionable_id, 'oldValue' => $history->oldValue()]);
-            $formattedHistory[] = <<<HTML
+            if ($history->key == 'created_at' && !$history->old_value) {
+                $formattedHistory[] = $this->getCreatedRevisionTemplate($history);
+            } else {
+                $formattedHistory[] = $this->getRevisionTemplate($history);
+            }
+        }
+
+        return array_reverse($formattedHistory);
+    }
+
+    private function getRevisionTemplate($history)
+    {
+        $timeAgo = $history->created_at->diffForHumans();
+        $revertRoute = route('admin.translation.translation.update', [$history->revisionable_id, 'oldValue' => $history->oldValue()]);
+        $edited = trans('translation::translations.edited');
+        return <<<HTML
 <tr>
     <td>{$history->oldValue()}</td>
     <td>{$history->userResponsible()->first_name} {$history->userResponsible()->last_name}</td>
+    <td>$edited</td>
     <td><a data-toggle="tooltip" title="{$history->created_at}">{$timeAgo}</a></td>
     <td><a href="{$revertRoute}"><i class="fa fa-history"></i></a></td>
 </tr>
 HTML;
-        }
+    }
 
-        return $formattedHistory;
+    private function getCreatedRevisionTemplate($history)
+    {
+        $timeAgo = $history->created_at->diffForHumans();
+        $created = trans('translation::translations.created');
+        return <<<HTML
+<tr>
+    <td></td>
+    <td>{$history->userResponsible()->first_name} {$history->userResponsible()->last_name}</td>
+    <td>$created</td>
+    <td><a data-toggle="tooltip" title="{$history->created_at}">{$timeAgo}</a></td>
+    <td></td>
+</tr>
+HTML;
+
     }
 }

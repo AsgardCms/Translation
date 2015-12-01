@@ -29,4 +29,7 @@ return [
     'author' => 'Author',
     'history' => 'History',
     'No Revisions yet' => 'No Revisions yet',
+    'event' => 'Event',
+    'created' => 'Created',
+    'edited' => 'Edited',
 ];
