@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 
 class UpdateTranslationTranslationsTableWithIndex extends Migration
 {
-
     /**
      * Run the migrations.
      * @return void
@@ -27,5 +26,4 @@ class UpdateTranslationTranslationsTableWithIndex extends Migration
             $table->dropIndex('key');
         });
     }
-
 }

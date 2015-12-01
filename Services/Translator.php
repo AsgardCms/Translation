@@ -21,6 +21,7 @@ class Translator extends \Illuminate\Translation\Translator
         if ($translation = $translationRepository->findByKeyAndLocale($key, $locale)) {
             return $this->makeReplacements($translation, $replace);
         }
+
         return parent::get($key, $replace, $locale);
     }
 }
