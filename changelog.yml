@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.6.0":
+        changed:
+            - Making the history limit amount configurable
     "1.5.1":
         changed:
             - Adding a case if there are no revisions yet
