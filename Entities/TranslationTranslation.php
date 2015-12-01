@@ -17,6 +17,12 @@ class TranslationTranslation extends Model
     protected $revisionCleanup = true;
     protected $historyLimit = 100;
 
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->historyLimit = config('asgard.translation.config.revision-history-limit', 100);
+    }
+
     public static function boot()
     {
         parent::boot();
