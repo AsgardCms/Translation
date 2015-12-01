@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.5.0":
+        changed:
+            - Adding an index on the key column of the translations table
     "1.4.1":
         changed:
             - Check that asgard is installed before registering the custom translator
