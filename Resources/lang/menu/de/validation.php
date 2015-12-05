@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'only one primary menu' => 'Nur ein Menü kann jeweils primär sein.',
+    'only one primary menu' => 'Es kann nur ein Hauptmenü geben',
     'name is required' => 'Der Name ist erforderlich',
 ];
