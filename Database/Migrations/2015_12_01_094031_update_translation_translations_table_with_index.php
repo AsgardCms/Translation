@@ -23,7 +23,7 @@ class UpdateTranslationTranslationsTableWithIndex extends Migration
     public function down()
     {
         Schema::table('translation__translations', function (Blueprint $table) {
-            $table->dropIndex('key');
+            $table->dropIndex('translation__translations_key_index');
         });
     }
 }
