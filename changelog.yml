@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.6.1":
+        changed:
+            - Fixing <code>key</code> index name in down method
     "1.6.0":
         added:
             - Translations revisions now also record the created event
