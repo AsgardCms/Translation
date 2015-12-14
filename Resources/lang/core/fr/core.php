@@ -28,6 +28,7 @@ return [
         'italian' => 'Italien',
         'greek' => 'Ελληνικά',
         'spanish' => 'Espagnol',
+        'czech' => 'Tchèque',
     ],
     'title' => [
         'translatable fields' => 'Champs traduisible',

@@ -23,6 +23,7 @@ return [
         'portuguese' => 'Португалски',
         'arabic' => 'Арапски',
         'macedonian' => 'Македонски',
+        'czech' => 'Чешка',
     ],
     'button' => [
         'cancel' => 'Откажи',
