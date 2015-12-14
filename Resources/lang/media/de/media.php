@@ -19,7 +19,7 @@ return [
         'keywords' => 'Schlüsselwörter',
     ],
     'validation' => [
-        'max_size' => 'Maximale Ordnergröße (:size) der Medienordner erreicht.',
+        'max_size' => 'Maximale Ordnergröße (:size) des Medienordners erreicht.',
     ],
     'file-sizes' => [
         'B' => 'Bytes',
@@ -29,7 +29,7 @@ return [
         'TB' => 'Tb',
     ],
     'choose file' => 'Datei auswählen',
-    'insert' => 'Einfügen diese Datei',
+    'insert' => 'Datei einfügen',
     'file picker' => 'Dateiauswahl',
-    'Browse' => 'Durchsuchen ...',
+    'Browse' => 'Durchsuchen...',
 ];

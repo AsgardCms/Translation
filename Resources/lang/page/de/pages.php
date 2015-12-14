@@ -10,7 +10,7 @@ return [
         'create page' => 'Seite erstellen',
     ],
     'table' => [
-        'name' => 'Namen',
+        'name' => 'Name',
         'slug' => 'Slug',
     ],
     'form' => [
@@ -37,6 +37,6 @@ return [
         'article' => 'Artikel',
     ],
     'navigation' => [
-        'back to index' => 'Zurück zum Seitenindex'
+        'back to index' => 'Zurück zur Übersicht'
     ]
 ];
