@@ -20,7 +20,8 @@ return [
         'polish' => 'Lehçe',
         'portuguese' => 'Portekizce',
         'arabic' => 'Arapça',
-        'turkish' => 'Türkçe'
+        'turkish' => 'Türkçe',
+        'czech' => 'Çek',
     ],
     'button' => [
         'cancel' => 'Vazgeç',

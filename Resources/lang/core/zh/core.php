@@ -19,6 +19,7 @@ return [
         'spanish' => 'Spanish',
         'chinese (simplified)' => '简体中文',
         'chinese (traditional)' => '繁体中文',
+        'czech' => '捷克',
     ],
     'button' => [
         'cancel' => '取消',
