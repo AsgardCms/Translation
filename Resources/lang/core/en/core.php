@@ -21,6 +21,7 @@ return [
         'portuguese' => 'Portuguese',
         'arabic' => 'Arabic',
         'macedonian' => 'Македонски',
+        'turkish' => 'Türkçe'
     ],
     'button' => [
         'cancel' => 'Cancel',
