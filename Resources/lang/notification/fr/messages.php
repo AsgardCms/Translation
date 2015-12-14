@@ -12,4 +12,5 @@ return [
     'delete all' => 'Suprimmer tous',
     'all notifications deleted' => 'Toutes vous notifications ont été supprimer.',
     'all notifications marked as read' => 'Toutes vous notifications ont été marquer comme lu.',
+    'view all' => 'Voir tous',
 ];
