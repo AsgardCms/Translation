@@ -4,6 +4,7 @@ versions:
         added:
             - Notification <code>messages.view all</code> translation key
             - Adding Turkish language
+            - Added Dutch translations.
     "1.6.1":
         changed:
             - Fixing <code>key</code> index name in down method
