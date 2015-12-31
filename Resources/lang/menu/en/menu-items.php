@@ -8,6 +8,7 @@ return [
         'same tab' => 'Same tab',
         'new tab' => 'New tab',
         'icon' => 'Icon',
+        'parent menu item' => 'Parent Menu Item'
     ],
     'link-type' => [
         'link type' => 'Linktype',
