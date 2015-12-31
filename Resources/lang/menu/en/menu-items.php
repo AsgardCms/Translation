@@ -9,4 +9,10 @@ return [
         'new tab' => 'New tab',
         'icon' => 'Icon',
     ],
+    'link-type' => [
+        'link type' => 'Linktype',
+        'page' => 'Page',
+        'internal' => 'Internal',
+        'external' => 'External',
+    ]
 ];
