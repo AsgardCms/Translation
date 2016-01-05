@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.8.0":
+        added:
+            - Adding swedish language tab translation
+        changed:
+            - Converting translation files that were in latin1 to utf8 encoding
     "1.7.0":
         added:
             - Notification <code>messages.view all</code> translation key
