@@ -2,31 +2,31 @@
 
 return [
     'button' => [
-        'new-role' => 'Nova função',
+        'new-role' => 'Nova funÃ§Ã£o',
     ],
     'title' => [
-        'roles' => 'Funções',
-        'edit' => 'Editar função',
-        'users-with-roles' => 'Utilizadores com esta função',
+        'roles' => 'FunÃ§Ãµes',
+        'edit' => 'Editar funÃ§Ã£o',
+        'users-with-roles' => 'Utilizadores com esta funÃ§Ã£o',
     ],
     'breadcrumb' => [
-        'roles' => 'Funções',
-        'new' => 'Nova função',
-        'edit' => 'Editar função',
+        'roles' => 'FunÃ§Ãµes',
+        'new' => 'Nova funÃ§Ã£o',
+        'edit' => 'Editar funÃ§Ã£o',
     ],
     'table' => [
         'name' => 'Nome',
     ],
     'tabs' => [
         'data' => 'Dados',
-        'permissions' => 'Permissões',
+        'permissions' => 'PermissÃµes',
     ],
     'form' => [
-        'name' => 'Nome da função',
-        'slug' => 'Alcunha (slug) da função',
+        'name' => 'Nome da funÃ§Ã£o',
+        'slug' => 'Alcunha (slug) da funÃ§Ã£o',
     ],
     'navigation' => [
-        'back to index' => 'Voltar ao índice de funções'
+        'back to index' => 'Voltar ao Ã­ndice de funÃ§Ãµes'
     ],
     'select all' => 'Selecionar todas',
     'deselect all' => 'Desmarcar todas',
