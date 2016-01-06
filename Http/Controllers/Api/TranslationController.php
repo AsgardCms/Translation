@@ -63,6 +63,7 @@ class TranslationController extends Controller
         $timeAgo = $history->created_at->diffForHumans();
         $revertRoute = route('admin.translation.translation.update', [$history->revisionable_id, 'oldValue' => $history->oldValue()]);
         $edited = trans('translation::translations.edited');
+
         return <<<HTML
 <tr>
     <td>{$history->oldValue()}</td>
@@ -78,6 +79,7 @@ HTML;
     {
         $timeAgo = $history->created_at->diffForHumans();
         $created = trans('translation::translations.created');
+
         return <<<HTML
 <tr>
     <td></td>
@@ -87,6 +89,5 @@ HTML;
     <td></td>
 </tr>
 HTML;
-
     }
 }
