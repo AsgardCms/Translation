@@ -1,5 +1,9 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.9.0":
+        changed:
+            - Making sure the translation cache key doesnt contain spaces
+            - Only use the cache decorator if this is enabled in environment file
     "1.8.0":
         added:
             - Adding swedish language tab translation
