@@ -14,5 +14,5 @@ return [
         'page' => 'Seite',
         'internal' => 'Intern',
         'external' => 'Extern',
-        ]
+    ],
 ];
