@@ -30,6 +30,6 @@ return [
     'history' => 'Historique',
     'No Revisions yet' => 'Pas encore de révisions',
     'event' => 'Évenement',
-    'created' => 'Creéé le',
-    'edited' => 'Édité le',
+    'created' => 'Créer le',
+    'edited' => 'Éditer le',
 ];
