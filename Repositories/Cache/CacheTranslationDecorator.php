@@ -20,11 +20,11 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
      */
     public function findByKeyAndLocale($key, $locale = null)
     {
-        $key = $this->cleanKey($key);
+        $cleanKey = $this->cleanKey($key);
 
         return $this->cache
             ->tags($this->entityName, 'global')
-            ->rememberForever("{$this->locale}.{$this->entityName}.findByKeyAndLocale.{$key}.{$locale}",
+            ->rememberForever("{$this->entityName}.findByKeyAndLocale.{$cleanKey}.{$locale}",
                 function () use ($key, $locale) {
                     return $this->repository->findByKeyAndLocale($key, $locale);
                 }
@@ -51,11 +51,11 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
 
     public function findTranslationByKey($key)
     {
-        $key = $this->cleanKey($key);
+        $cleanKey = $this->cleanKey($key);
 
         return $this->cache
             ->tags($this->entityName, 'global')
-            ->rememberForever("{$this->locale}.{$this->entityName}.findTranslationByKey.{$key}",
+            ->rememberForever("{$this->locale}.{$this->entityName}.findTranslationByKey.{$cleanKey}",
                 function () use ($key) {
                     return $this->repository->findTranslationByKey($key);
                 }
