@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.10.0":
+        added:
+          - French translations
     "1.9.1":
         changed:
             - Fixed variable name in cache decorator
