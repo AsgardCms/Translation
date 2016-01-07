@@ -3,10 +3,10 @@
 return [
     'title' => [
         'translations' => 'Traductions',
-        'edit translation' => '&Eacute;diter une traduction',
+        'edit translation' => 'Éditer une traduction',
     ],
     'button' => [
-        'create translation' => 'Cr&eacute;er une traduction',
+        'create translation' => 'Créer une traduction',
     ],
     'table' => [
     ],
@@ -20,16 +20,16 @@ return [
     'Export' => 'Exporter',
     'Import' => 'Importer',
     'Import csv translations file' => 'Importer un fichier de traductions',
-    'only for developers' => 'N&eacute;cessitera un gestion git !',
-    'Translations exported' => 'Traductions export&eacute;es.',
-    'Translations imported' => 'Traductions import&eacute;es.',
+    'only for developers' => 'Nécessitera un gestion git !',
+    'Translations exported' => 'Traductions exportées.',
+    'Translations imported' => 'Traductions importées.',
     'select CSV file' => 'Selectionner un fichier CSV ...',
     'csv only allowed' => 'Charger uniquement un fichier CSV, s\'il vous plait.',
     'time' => 'Temps',
     'author' => 'Auteur',
     'history' => 'Historique',
-    'No Revisions yet' => 'Pas encore de r&eacute;visions',
-    'event' => '&Eacute;venement',
-    'created' => 'Cre&eacute;&eacute; le',
-    'edited' => '&Eacute;dit&eacute; le',
+    'No Revisions yet' => 'Pas encore de révisions',
+    'event' => 'Évenement',
+    'created' => 'Creéé le',
+    'edited' => 'Édité le',
 ];
