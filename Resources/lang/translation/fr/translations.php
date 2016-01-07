@@ -20,7 +20,7 @@ return [
     'Export' => 'Exporter',
     'Import' => 'Importer',
     'Import csv translations file' => 'Importer un fichier de traductions',
-    'only for developers' => 'Nécessitera un gestion git !',
+    'only for developers' => 'Seulement pour les développeurs',
     'Translations exported' => 'Traductions exportées.',
     'Translations imported' => 'Traductions importées.',
     'select CSV file' => 'Selectionner un fichier CSV ...',
