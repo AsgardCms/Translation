@@ -13,6 +13,11 @@ return [
         'width' => 'Largeur',
         'height' => 'Hauteur',
     ],
+    'form' => [
+        'alt_attribute' => 'Attribut alt',
+        'description' => 'Description',
+        'keywords' => 'Mots clés',
+    ],
     'validation' => [
         'max_size' => 'Taille maximale (:size) du dossier Media atteint.',
     ],
