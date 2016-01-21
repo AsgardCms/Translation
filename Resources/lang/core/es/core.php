@@ -17,7 +17,13 @@ return [
         'italian' => 'Italiano',
         'greek' => 'Griego',
         'spanish' => 'Español',
+        'polish' => 'Polaco',
+        'portuguese' => 'Portugués',
+        'arabic' => 'Árabe',
+        'macedonian' => 'Macedónio',
+        'turkish' => 'Turco',
         'czech' => 'Checo',
+        'swedish' => 'Sueco',
     ],
     'button' => [
         'cancel' => 'Cancelar',
