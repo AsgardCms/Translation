@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.10.1":
+        changed:
+            - Fixed the Cache Decorator using null in the Cache Key
     "1.10.0":
         added:
           - French translations
