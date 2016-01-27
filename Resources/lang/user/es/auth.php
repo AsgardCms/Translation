@@ -18,4 +18,5 @@ return [
     'additional confirm email message' => 'Podríamos necesitar enviarle información importante sobre nuestros servicios y es importante tener una dirección de correo electrónico activa.',
     'confirm email button' => 'Confirmar correo electrónico',
     'end greeting' => 'El equipo',
+    'sign in welcome message' => 'Inicie sesión',
 ];

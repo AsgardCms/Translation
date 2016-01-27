@@ -30,5 +30,6 @@ return [
     ],
     'select all' => 'Seleccionar todos',
     'deselect all' => 'Deseleccionar todos',
+    'inherit' => 'Heredar de rol',
     'swap' => 'Cambiar',
 ];
