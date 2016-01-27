@@ -22,6 +22,8 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
     {
         $cleanKey = $this->cleanKey($key);
 
+        $locale = $locale ?: app()->getLocale();
+
         return $this->cache
             ->tags($this->entityName, 'global')
             ->rememberForever("{$this->entityName}.findByKeyAndLocale.{$cleanKey}.{$locale}",
