@@ -1,11 +1,12 @@
 <?php
 
 return [
-    'name' => 'Tâbleau de bord',
-    'edit grid' => 'Edition de la grille',
-    'reset grid' => 'Mise à zéro de la grille',
+    'name' => 'Tableau de bord',
+    'edit grid' => 'Édition de la grille',
+    'reset grid' => 'Réinitialisation de la grille',
+    'save grid' => 'Sauvegarder la grille',
     'add widget' => 'Ajouter un widget',
-    'add widget to dashboard' => 'Ajouter un widget au tâbleau de bord',
-    'reset not needed' => 'Remise à zéro non nécessaire',
-    'dashboard reset' => 'Tâbleau de bord remit à zéro',
+    'add widget to dashboard' => 'Ajouter un widget au tableau de bord',
+    'reset not needed' => 'Réinitialisation non nécessaire',
+    'dashboard reset' => 'Tableau de bord réinitialisé',
 ];

@@ -4,7 +4,7 @@ return [
     'title' => [
         'blocks' => 'Blocks',
         'create block' => 'Créer un block',
-        'edit block' => 'Editition d\'un block',
+        'edit block' => 'Édition d\'un block',
     ],
     'button' => [
         'create block' => 'Créer un block',
@@ -14,13 +14,13 @@ return [
     'form' => [
     ],
     'messages' => [
-        'block created' => 'Block créer.',
+        'block created' => 'Block créé.',
         'block not found' => 'Block non trouvé.',
-        'block updated' => 'Block mit à jour.',
-        'block deleted' => 'Block suprimer',
+        'block updated' => 'Block mis à jour.',
+        'block deleted' => 'Block supprimé',
     ],
     'validation' => [
-        'body is required' => 'Le contenu est réquis',
+        'body is required' => 'Le contenu est requis',
     ],
     'online' => 'En ligne',
     'name' => 'Nom',

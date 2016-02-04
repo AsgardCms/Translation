@@ -6,13 +6,13 @@ return [
     ],
     'title' => [
         'roles' => 'Rôles',
-        'edit' => 'Editez un rôle',
+        'edit' => 'Éditez un rôle',
         'users-with-roles' => 'Utilisateurs avec ce rôle',
     ],
     'breadcrumb' => [
         'roles' => 'Rôles',
         'new' => 'Nouveau',
-        'edit' => 'Editez un rôle',
+        'edit' => 'Éditez un rôle',
     ],
     'table' => [
         'name' => 'Nom',
@@ -28,7 +28,8 @@ return [
     'navigation' => [
         'back to index' => 'Retour vers l\'index des roles'
     ],
-    'select all' => 'Sélectionner tous',
-    'deselect all' => 'Déselectionner tous',
+    'select all' => 'Sélectionner tout',
+    'deselect all' => 'Désélectionner tout',
+    'inherit' => 'Hériter du rôle',
     'swap' => 'Intervertir',
 ];

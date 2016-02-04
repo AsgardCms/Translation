@@ -2,7 +2,7 @@
 
 return [
     'cancel' => 'Annuler',
-    'delete' => 'Suprimmer',
+    'delete' => 'Supprimer',
     'create' => 'Créer',
     'update' => 'Mise à jour',
 ];
