@@ -3,7 +3,7 @@
 return [
     'title' => [
         'media' => 'Média',
-        'edit media' => 'Edition de média',
+        'edit media' => 'Édition de média',
     ],
     'breadcrumb' => [
         'media' => 'Média',
@@ -19,7 +19,7 @@ return [
         'keywords' => 'Mots clés',
     ],
     'validation' => [
-        'max_size' => 'Taille maximale (:size) du dossier Media atteint.',
+        'max_size' => 'Taille maximale (:size) du dossier Media atteinte.',
     ],
     'file-sizes' => [
         'B' => 'Octet',
@@ -28,8 +28,8 @@ return [
         'GB' => 'Go',
         'TB' => 'To',
     ],
-    'choose file' => 'Choissisez un fichier',
+    'choose file' => 'Choisissez un fichier',
     'insert' => 'Sélectionner ce fichier',
-    'file picker' => 'Sélectionneur de fichier',
-    'Browse' => 'Parcourir ...',
+    'file picker' => 'Sélection de fichiers',
+    'Browse' => 'Parcourir...',
 ];

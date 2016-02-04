@@ -9,7 +9,7 @@ return [
         'module list' => 'Liste de modules',
     ],
     'button' => [
-        'save module configuration' => 'Sauvez la configuration de modules',
+        'save module configuration' => 'Sauvez la configuration du module',
     ],
     'table' => [
         'vendor' => 'Vendor',
@@ -24,9 +24,9 @@ return [
     'viewing module' => 'Affichage du module',
     'module' => 'Module',
     'publish assets' => 'Publier les assets',
-    'module enabled' => 'Module activer.',
-    'module disabled' => 'Module désactiver.',
-    'module cannot be disabled' => 'Ceci est un module principal, il ne peut être désactiver.',
+    'module enabled' => 'Module activé.',
+    'module disabled' => 'Module désactivé.',
+    'module cannot be disabled' => 'Ceci est un module principal, il ne peut être désactivé.',
     'changelog' => 'Changelog',
     'added' => 'Ajouté',
     'changed' => 'Changé',

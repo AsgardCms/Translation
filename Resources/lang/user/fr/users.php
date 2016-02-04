@@ -7,24 +7,26 @@ return [
     'title' => [
         'users' => 'Utilisateurs',
         'new-user' => 'Nouvel utilisateur',
-        'edit-user' => 'Edition d\'utilisateur',
+        'edit-user' => 'Édition d\'utilisateur',
     ],
     'breadcrumb' => [
         'home' => 'Accueil',
         'users' => 'Utilisateurs',
         'new' => 'Nouveau',
-        'edit-user' => 'Edition d\'utilisateur',
+        'edit-user' => 'Édition d\'utilisateur',
     ],
     'tabs' => [
         'data' => 'Données',
         'roles' => 'Rôles',
         'permissions' => 'Permissions',
+        'new password' => 'Nouveau mot de passe',
+        'or send reset password mail' => 'ou, envoyer une réinitialisation de mot de passe par email',
     ],
     'form' => [
         'first-name' => 'Prénom',
         'last-name' => 'Nom de famille',
         'email' => 'Adresse email',
-        'status' => 'Status',
+        'status' => 'Statut',
         'password' => 'Mot de passe',
         'password-confirmation' => 'Confirmation de mot de passe',
         'new password' => 'Nouveau mot de passe',
@@ -32,7 +34,7 @@ return [
         'is activated' => 'Activé'
     ],
     'table' => [
-        'created-at' => 'Crée à',
+        'created-at' => 'Crée le',
         'first-name' => 'Prénom',
         'last-name' => 'Nom de famille',
         'email' => 'Email',
@@ -42,6 +44,6 @@ return [
         'back to index' => 'Retour vers l\'index des utilisateurs'
     ],
     'new password' => 'Nouveau mot de passe',
-    'or send reset password mail' => 'ou, envoyer email de reinitialisation de mot de passe',
-    'send reset password email' => 'Envoyer email de reinitialisation du mot de passe',
+    'or send reset password mail' => 'ou, envoyer une réinitialisation de mot de passe par email',
+    'send reset password email' => 'Envoyer une réinitialisation de mot de passe par email',
 ];

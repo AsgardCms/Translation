@@ -5,7 +5,7 @@ return [
     'titles' => [
         'menu' => 'Gestionnaire de menu',
         'create menu' => 'Créer un menu',
-        'edit menu' => 'Editer un menu',
+        'edit menu' => 'Éditer un menu',
         'create menu item' => 'Créer un élément du menu',
         'edit menu item' => 'Editer un élément du menu',
     ],
@@ -29,9 +29,10 @@ return [
         'name' => 'Nom',
         'status' => 'En ligne',
         'uri' => 'URI',
-        'primary' => 'Menu principal (utiliser pour le routage front-end)',
+        'url' => 'URL',
+        'primary' => 'Menu principal (utilisé pour le routage frontal)',
     ],
     'navigation' => [
-        'back to index' => 'Retour vers l\index des menus'
+        'back to index' => 'Retour vers l\'index des menus'
     ]
 ];

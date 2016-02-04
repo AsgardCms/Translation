@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'file updated' => 'Fichier mit à jour',
-    'file deleted' => 'File suprimer',
+    'file updated' => 'Fichier mis à jour',
+    'file deleted' => 'Fichier supprimé',
 ];

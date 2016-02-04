@@ -1,13 +1,13 @@
 <?php
 
 return [
-    'page created' => 'Page créer.',
-    'page not found' => 'Page non trouvé.',
-    'page updated' => 'Page mit à jour.',
-    'page deleted' => 'Page suprimer',
+    'page created' => 'Page créée avec succès.',
+    'page not found' => 'Page non trouvée.',
+    'page updated' => 'Page mise à jour avec succès.',
+    'page deleted' => 'Page supprimée avec succès.',
 
-    'template is required' => 'Le nom de template de la page est réquis.',
-    'title is required' => 'Le titre est réquis.',
-    'body is required' => 'Le contenu est réquis.',
-    'only one homepage allowed' => 'Une seule page d\'accueil possible.',
+    'template is required' => 'Le nom de modèle de page est requis.',
+    'title is required' => 'Le titre est requis.',
+    'body is required' => 'Le contenu est requis.',
+    'only one homepage allowed' => 'Une seule page d\'accueil est permise.',
 ];
