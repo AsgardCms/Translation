@@ -12,6 +12,7 @@ use Modules\Translation\Repositories\FileTranslationRepository;
 use Modules\Translation\Repositories\TranslationRepository;
 use Modules\Translation\Services\TranslationLoader;
 use Modules\Translation\Services\Translator;
+use Illuminate\Validation\Factory;
 use Schema;
 
 class TranslationServiceProvider extends ServiceProvider
@@ -42,6 +43,7 @@ class TranslationServiceProvider extends ServiceProvider
 
         if ($this->shouldRegisterCustomTranslator()) {
             $this->registerCustomTranslator();
+            $this->registerCustomValidator();
         }
     }
 
@@ -118,6 +120,29 @@ class TranslationServiceProvider extends ServiceProvider
             $trans->setFallback($app['config']['app.fallback_locale']);
 
             return $trans;
+        });
+    }
+
+    /**
+     * We have to override Laravel's Validator Factory so it uses our custom Translator instance.
+     * Unfortunately we can't just change the Translator on the Factory as the API doesn't
+     * expose the property or a setter.
+     */
+    protected function registerCustomValidator()
+    {
+        $this->app->offsetUnset('validator');
+
+        $this->app->singleton('validator', function ($app) {
+            $validator = new Factory($app['translator'], $app);
+
+            // The validation presence verifier is responsible for determining the existence
+            // of values in a given data collection, typically a relational database or
+            // other persistent data stores. And it is used to check for uniqueness.
+            if (isset($app['validation.presence'])) {
+                $validator->setPresenceVerifier($app['validation.presence']);
+            }
+
+            return $validator;
         });
     }
 
