@@ -3,6 +3,7 @@ versions:
     "1.11.1":
         changed:
             - Using the correct configuration file & key to hide sidebar
+            - Updating French translations
     "1.11.0":
         added:
             - Spanish translations
