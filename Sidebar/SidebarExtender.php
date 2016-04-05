@@ -29,7 +29,7 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
      */
     public function extendWith(Menu $menu)
     {
-        if (false === config('asgard.translation.config.translations-gui')) {
+        if (false === config('app.translations-gui')) {
             return $menu;
         }
         $menu->group(trans('core::sidebar.content'), function (Group $group) {
