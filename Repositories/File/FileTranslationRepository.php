@@ -58,12 +58,16 @@ class FileTranslationRepository implements FileTranslationRepositoryInterface
 
         foreach ($paths as $hint => $path) {
             foreach ($locales as $locale => $language) {
-                foreach ($this->finder->glob("{$path}/{$locale}/*.php") as $file) {
-                    $category = str_replace(["$path/", ".php", "{$locale}/"], "", $file);
-                    $category = str_replace("/", ".", $category);
-                    $category = !is_int($hint) ? "{$hint}::{$category}" : $category;
+                $glob = $this->finder->glob("{$path}/{$locale}/*.php");
 
-                    $files[$locale][$category] = $file;
+                if ($glob) {
+                    foreach ($glob as $file) {
+                        $category = str_replace(["$path/", ".php", "{$locale}/"], "", $file);
+                        $category = str_replace("/", ".", $category);
+                        $category = !is_int($hint) ? "{$hint}::{$category}" : $category;
+
+                        $files[$locale][$category] = $file;
+                    }
                 }
             }
         }
