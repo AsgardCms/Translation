@@ -19,4 +19,5 @@ return [
     'confirm email button' => 'Confirm email address',
     'end greeting' => 'The team',
     'sign in welcome message' => 'Sign in to start your session',
+    'reset password email was sent' => 'Reset password email was sent',
 ];

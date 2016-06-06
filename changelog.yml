@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.12.0":
+        added:
+            - Adding translation for reset email sent notification
     "1.11.1":
         changed:
             - Using the correct configuration file & key to hide sidebar
