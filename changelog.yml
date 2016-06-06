@@ -3,6 +3,7 @@ versions:
     "1.12.0":
         added:
             - Adding translation for reset email sent notification
+            - Add a check to avoid errors on some systems
     "1.11.1":
         changed:
             - Using the correct configuration file & key to hide sidebar
