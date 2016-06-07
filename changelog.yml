@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Translation
 versions:
+    "1.13.0":
+        changed:
+            - Use <code>$router</code> variable in routes file
     "1.12.0":
         added:
             - Adding translation for reset email sent notification
