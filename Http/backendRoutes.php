@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Routing\Router;
+
 /** @var Router $router */
 
 $router->group(['prefix' =>'/translation'], function (Router $router) {

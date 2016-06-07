@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Routing\Router;
+
 /** @var $router Router */
 
 $router->post('translation/update', ['uses' => 'TranslationController@update', 'as' => 'api.translation.translations.update', ]);
