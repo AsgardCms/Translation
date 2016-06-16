@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Modules\Core\Composers\CurrentUserViewComposer;
+use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Translation\Console\BuildTranslationsCacheCommand;
 use Modules\Translation\Entities\Translation;
 use Modules\Translation\Repositories\Cache\CacheTranslationDecorator;
@@ -16,6 +17,7 @@ use Schema;
 
 class TranslationServiceProvider extends ServiceProvider
 {
+    use CanPublishConfiguration;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -38,6 +40,9 @@ class TranslationServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->publishConfig('translation', 'config');
+        $this->publishConfig('translation', 'permissions');
+
         $this->registerValidators();
 
         if ($this->shouldRegisterCustomTranslator()) {
