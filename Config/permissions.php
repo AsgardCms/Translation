@@ -3,10 +3,8 @@
 return [
     'translation.translations' => [
         'index',
-        'update',
+        'edit',
         'export',
         'import',
     ],
-// append
-
 ];
