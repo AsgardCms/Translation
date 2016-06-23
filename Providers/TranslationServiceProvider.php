@@ -60,7 +60,7 @@ class TranslationServiceProvider extends ServiceProvider
             return false;
         }
 
-        if (false === app('asgard.isInstalled')) {
+        if (false === env('INSTALLED')) {
             return false;
         }
 
