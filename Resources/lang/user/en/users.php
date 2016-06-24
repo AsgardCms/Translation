@@ -53,4 +53,5 @@ return [
     'your api keys' => 'Your API keys',
     'you have no api keys' => 'You have no API keys.',
     'generate one' => 'Generate one.',
+    'token generated' => 'API token was successfully generated',
 ];
