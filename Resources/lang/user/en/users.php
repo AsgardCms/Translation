@@ -48,4 +48,9 @@ return [
     'send reset password email' => 'Send reset password email',
     'my account' => 'My Account',
     'api-keys' => 'Api Keys',
+    'generate new api key' => 'Generate new API key',
+    'delete api key confirm' => 'Deleting an api key will prevent any application to use this key.',
+    'your api keys' => 'Your API keys',
+    'you have no api keys' => 'You have no API keys.',
+    'generate one' => 'Generate one.',
 ];
