@@ -8,6 +8,7 @@ return [
         'same tab' => 'Same tab',
         'new tab' => 'New tab',
         'icon' => 'Icon',
+        'class' => 'CSS Class',
         'parent menu item' => 'Parent Menu Item'
     ],
     'link-type' => [
@@ -15,5 +16,5 @@ return [
         'page' => 'Page',
         'internal' => 'Internal',
         'external' => 'External',
-    ]
+    ],
 ];
