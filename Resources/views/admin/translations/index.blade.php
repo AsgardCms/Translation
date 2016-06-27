@@ -52,7 +52,7 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                            <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>Key</th>
                             <?php foreach (config('laravellocalization.supportedLocales') as $locale => $language): ?>
                             <th>{{ $locale }}</th>
                             <?php endforeach; ?>
