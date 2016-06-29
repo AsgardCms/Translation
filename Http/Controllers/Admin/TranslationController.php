@@ -8,7 +8,7 @@ use Modules\Translation\Http\Requests\ImportTranslationsRequest;
 use Modules\Translation\Importers\TranslationsImporter;
 use Modules\Translation\Repositories\TranslationRepository;
 use Modules\Translation\Services\TranslationsService;
-use Pingpong\Modules\Facades\Module;
+use Nwidart\Modules\Facades\Module;
 
 class TranslationController extends AdminBaseController
 {
