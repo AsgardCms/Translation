@@ -60,7 +60,7 @@ class TranslationServiceProvider extends ServiceProvider
             return false;
         }
 
-        if (false === env('INSTALLED')) {
+        if (false === env('INSTALLED', false)) {
             return false;
         }
 
