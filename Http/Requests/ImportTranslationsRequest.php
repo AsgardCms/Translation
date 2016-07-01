@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Http\Requests;
+<?php
+
+namespace Modules\Translation\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

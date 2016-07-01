@@ -19,7 +19,7 @@ return [
         'slug' => 'Slug',
     ],
     'navigation' => [
-        'back to index' => 'İçeriklere geri dön'
+        'back to index' => 'İçeriklere geri dön',
     ],
     'latest posts' => 'Son içerikler',
 ];

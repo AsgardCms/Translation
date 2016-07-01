@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Exporters;
+<?php
+
+namespace Modules\Translation\Exporters;
 
 use League\Csv\Writer;
 use Modules\Translation\Services\TranslationsService;

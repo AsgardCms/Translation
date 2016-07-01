@@ -19,7 +19,7 @@ return [
         'slug' => 'Slug',
     ],
     'navigation' => [
-        'back to index' => 'Retour vers l\'index des articles'
+        'back to index' => 'Retour vers l\'index des articles',
     ],
     'latest posts' => 'Derniers articles',
 ];

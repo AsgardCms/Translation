@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Repositories\Cache;
+<?php
+
+namespace Modules\Translation\Repositories\Cache;
 
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;
 use Modules\Translation\Entities\TranslationTranslation;

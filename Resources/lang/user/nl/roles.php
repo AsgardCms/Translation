@@ -26,7 +26,7 @@ return [
         'slug' => 'Pad',
     ],
     'navigation' => [
-        'back to index' => 'Terug naar rollen overzicht'
+        'back to index' => 'Terug naar rollen overzicht',
     ],
     'select all' => 'Alles selecteren',
     'deselect all' => 'Alles deselecteren',

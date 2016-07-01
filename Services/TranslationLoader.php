@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Services;
+<?php
+
+namespace Modules\Translation\Services;
 
 class TranslationLoader extends \Illuminate\Translation\FileLoader
 {

@@ -26,7 +26,7 @@ return [
         'slug' => 'Slug du rôle',
     ],
     'navigation' => [
-        'back to index' => 'Retour vers l\'index des roles'
+        'back to index' => 'Retour vers l\'index des roles',
     ],
     'select all' => 'Sélectionner tout',
     'deselect all' => 'Désélectionner tout',

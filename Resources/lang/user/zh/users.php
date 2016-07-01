@@ -40,7 +40,7 @@ return [
         'actions' => '操作',
     ],
     'navigation' => [
-        'back to index' => '返回用户列表'
+        'back to index' => '返回用户列表',
     ],
     'new password setup' => '建立新密码',
     'or send reset password mail' => '或发送密码重设邮件',

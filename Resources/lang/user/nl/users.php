@@ -31,7 +31,7 @@ return [
         'password-confirmation' => 'Wachtwoord bevestiging',
         'new password' => 'Nieuw wachtwoord',
         'new password confirmation' => 'Nieuw wachtwoord bevestiging',
-        'is activated' => 'Geactiveerd'
+        'is activated' => 'Geactiveerd',
     ],
     'table' => [
         'created-at' => 'Aangemaakt op',
@@ -41,7 +41,7 @@ return [
         'actions' => 'Acties',
     ],
     'navigation' => [
-        'back to index' => 'Terug naar gebruikers overzicht'
+        'back to index' => 'Terug naar gebruikers overzicht',
     ],
     'new password setup' => 'Stel een nieuw wachtwoord in',
     'or send reset password mail' => 'of, stuur een wachtwoord herstel email',

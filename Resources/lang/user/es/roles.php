@@ -26,7 +26,7 @@ return [
         'slug' => 'URL amigable del rol',
     ],
     'navigation' => [
-        'back to index' => 'Regresar'
+        'back to index' => 'Regresar',
     ],
     'select all' => 'Seleccionar todos',
     'deselect all' => 'Deseleccionar todos',

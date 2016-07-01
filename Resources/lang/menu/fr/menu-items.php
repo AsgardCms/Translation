@@ -8,7 +8,7 @@ return [
         'same tab' => 'Même page (_self)',
         'new tab' => 'Nouvelle page (_blank)',
         'icon' => 'Icône',
-        'parent menu item' => 'Élement de menu Parent'
+        'parent menu item' => 'Élement de menu Parent',
     ],
     'link-type' => [
         'link type' => 'Type de lien',

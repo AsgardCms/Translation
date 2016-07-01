@@ -31,7 +31,7 @@ return [
         'password-confirmation' => 'Confirmación de contraseña',
         'new password' => 'Nueva contraseña',
         'new password confirmation' => 'Confirmación de la nueva contraseña',
-        'is activated' => 'Activado'
+        'is activated' => 'Activado',
     ],
     'table' => [
         'created-at' => 'Creado el',
@@ -41,7 +41,7 @@ return [
         'actions' => 'Acciones',
     ],
     'navigation' => [
-        'back to index' => 'Regresar'
+        'back to index' => 'Regresar',
     ],
     'new password setup' => 'Configuración de la contraseña nueva',
     'or send reset password mail' => 'o, enviar correo electrónico para restablecer contraseña',

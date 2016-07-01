@@ -33,6 +33,6 @@ return [
         'primary' => 'Hauptmenü (für das Frontend-Routing)',
     ],
     'navigation' => [
-        'back to index' => 'Zurück zur Übersicht'
-    ]
+        'back to index' => 'Zurück zur Übersicht',
+    ],
 ];

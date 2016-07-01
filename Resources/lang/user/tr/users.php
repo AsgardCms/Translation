@@ -31,7 +31,7 @@ return [
         'password-confirmation' => 'Şifre onayı',
         'new password' => 'Yeni şifre',
         'new password confirmation' => 'Yeni şifre onayı',
-        'is activated' => 'Aktivasyon'
+        'is activated' => 'Aktivasyon',
     ],
     'table' => [
         'created-at' => 'Oluşturulma tarihi',
@@ -41,7 +41,7 @@ return [
         'actions' => 'İşlemler',
     ],
     'navigation' => [
-        'back to index' => 'Kullanıcılara geri dön'
+        'back to index' => 'Kullanıcılara geri dön',
     ],
     'new password setup' => 'Yeni şifre oluştur',
     'or send reset password mail' => 'ya da şifre sıfırlama maili gönder',

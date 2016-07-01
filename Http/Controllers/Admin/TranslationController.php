@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Http\Controllers\Admin;
+<?php
+
+namespace Modules\Translation\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;

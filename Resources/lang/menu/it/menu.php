@@ -33,6 +33,6 @@ return [
         'primary' => 'Menu primario (usato per il routing front-end)',
     ],
     'navigation' => [
-        'back to index' => 'Indietro all\'indice dei menu'
-    ]
+        'back to index' => 'Indietro all\'indice dei menu',
+    ],
 ];

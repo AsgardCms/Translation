@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Events;
+<?php
+
+namespace Modules\Translation\Events;
 
 class TranslationNotFoundInCache
 {

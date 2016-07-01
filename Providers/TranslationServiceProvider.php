@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Providers;
+<?php
+
+namespace Modules\Translation\Providers;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;

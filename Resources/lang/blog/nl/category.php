@@ -19,6 +19,6 @@ return [
         'slug' => 'Pad',
     ],
     'navigation' => [
-        'back to index' => 'Terug naar categorieën overzicht'
+        'back to index' => 'Terug naar categorieën overzicht',
     ],
 ];

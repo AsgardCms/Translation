@@ -33,6 +33,6 @@ return [
         'primary' => 'Birincil menü (frond-end yönlendirmesi için kullanılır)',
     ],
     'navigation' => [
-        'back to index' => 'Menüye geri dön'
-    ]
+        'back to index' => 'Menüye geri dön',
+    ],
 ];

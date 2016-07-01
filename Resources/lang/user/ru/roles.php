@@ -26,7 +26,7 @@ return [
         'slug' => 'Ярлык роли',
     ],
     'navigation' => [
-        'back to index' => 'Вернуться к ролей индекса'
+        'back to index' => 'Вернуться к ролей индекса',
     ],
     'select all' => 'Выбрать всё',
     'deselect all' => 'Отменить всё',

@@ -33,6 +33,6 @@ return [
         'primary' => 'Menú principal (usado para rutas del sitio)',
     ],
     'navigation' => [
-        'back to index' => 'Regresar'
-    ]
+        'back to index' => 'Regresar',
+    ],
 ];

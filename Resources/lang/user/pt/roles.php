@@ -26,7 +26,7 @@ return [
         'slug' => 'Alcunha (slug) da função',
     ],
     'navigation' => [
-        'back to index' => 'Voltar ao índice de funções'
+        'back to index' => 'Voltar ao índice de funções',
     ],
     'select all' => 'Selecionar todas',
     'deselect all' => 'Desmarcar todas',

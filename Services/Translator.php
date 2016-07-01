@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Services;
+<?php
+
+namespace Modules\Translation\Services;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Modules\Translation\Repositories\TranslationRepository;

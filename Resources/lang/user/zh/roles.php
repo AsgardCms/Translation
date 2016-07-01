@@ -26,7 +26,7 @@ return [
         'slug' => '角色 slug',
     ],
     'navigation' => [
-        'back to index' => '返回角色列表'
+        'back to index' => '返回角色列表',
     ],
     'select all' => '全选',
     'deselect all' => '全部取消',

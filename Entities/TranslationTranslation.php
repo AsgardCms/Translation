@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Entities;
+<?php
+
+namespace Modules\Translation\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Venturecraft\Revisionable\RevisionableTrait;

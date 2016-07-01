@@ -19,6 +19,6 @@ return [
         'slug' => 'Slug',
     ],
     'navigation' => [
-        'back to index' => 'Kategorilere geri dön'
+        'back to index' => 'Kategorilere geri dön',
     ],
 ];

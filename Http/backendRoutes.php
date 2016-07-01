@@ -3,7 +3,6 @@
 use Illuminate\Routing\Router;
 
 /** @var Router $router */
-
 $router->group(['prefix' =>'/translation'], function (Router $router) {
     $router->bind('translations', function ($id) {
         return \Modules\Translation\Entities\TranslationTranslation::find($id);
@@ -19,12 +18,12 @@ $router->group(['prefix' =>'/translation'], function (Router $router) {
         'middleware' => 'can:translation.translations.edit',
     ]);
     $router->get('translations/export', [
-        'uses' => 'TranslationController@export', 
+        'uses' => 'TranslationController@export',
         'as' => 'admin.translation.translation.export',
         'middleware' => 'can:translation.translations.export',
     ]);
     $router->post('translations/import', [
-        'uses' => 'TranslationController@import', 
+        'uses' => 'TranslationController@import',
         'as' => 'admin.translation.translation.import',
         'middleware' => 'can:translation.translations.import',
     ]);

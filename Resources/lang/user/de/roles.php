@@ -26,7 +26,7 @@ return [
         'slug' => 'Rolle slug',
     ],
     'navigation' => [
-        'back to index' => 'Zurück zur Übersicht'
+        'back to index' => 'Zurück zur Übersicht',
     ],
     'select all' => 'Alle auswählen',
     'deselect all' => 'Alle abwählen',

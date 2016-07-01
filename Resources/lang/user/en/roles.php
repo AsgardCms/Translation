@@ -26,7 +26,7 @@ return [
         'slug' => 'Role slug',
     ],
     'navigation' => [
-        'back to index' => 'Back to roles index'
+        'back to index' => 'Back to roles index',
     ],
     'select all' => 'Select all',
     'deselect all' => 'Deselect all',

@@ -40,7 +40,7 @@ return [
         'actions' => 'Действия',
     ],
     'navigation' => [
-        'back to index' => 'Вернуться к списку пользователей'
+        'back to index' => 'Вернуться к списку пользователей',
     ],
     'new password setup' => 'Создать новый пароль',
     'or send reset password mail' => 'или отправить письмо о сбросе пароля на электронную почту',

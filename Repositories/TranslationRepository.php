@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Repositories;
+<?php
+
+namespace Modules\Translation\Repositories;
 
 use Modules\Core\Repositories\BaseRepository;
 use Modules\Translation\Entities\TranslationTranslation;

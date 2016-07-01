@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Importers;
+<?php
+
+namespace Modules\Translation\Importers;
 
 use League\Csv\Reader;
 use Modules\Translation\Repositories\TranslationRepository;

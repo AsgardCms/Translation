@@ -19,7 +19,7 @@ return [
         'slug' => 'Pad',
     ],
     'navigation' => [
-        'back to index' => 'Terug naar artikels overzicht'
+        'back to index' => 'Terug naar artikels overzicht',
     ],
     'latest posts' => 'Laatste artikels',
 ];

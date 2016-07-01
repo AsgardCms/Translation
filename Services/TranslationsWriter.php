@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Services;
+<?php
+
+namespace Modules\Translation\Services;
 
 use Illuminate\Filesystem\Filesystem;
 use Modules\Translation\ValueObjects\TranslationGroup;

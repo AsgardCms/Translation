@@ -40,7 +40,7 @@ return [
         'actions' => 'Azioni',
     ],
     'navigation' => [
-        'back to index' => 'Torna all\'indice utenti'
+        'back to index' => 'Torna all\'indice utenti',
     ],
     'new password setup' => 'Imposta una nuova password',
     'or send reset password mail' => 'o, invia una email per resettare la password',

@@ -33,6 +33,6 @@ return [
         'primary' => 'Primair menu (gebruikt voor front-end routing)',
     ],
     'navigation' => [
-        'back to index' => 'Ga terug naar het menu overzicht'
-    ]
+        'back to index' => 'Ga terug naar het menu overzicht',
+    ],
 ];

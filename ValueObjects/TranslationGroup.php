@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\ValueObjects;
+<?php
+
+namespace Modules\Translation\ValueObjects;
 
 use Illuminate\Support\Collection;
 

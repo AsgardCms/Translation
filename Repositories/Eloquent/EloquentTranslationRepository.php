@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Repositories\Eloquent;
+<?php
+
+namespace Modules\Translation\Repositories\Eloquent;
 
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 use Modules\Translation\Entities\TranslationTranslation;

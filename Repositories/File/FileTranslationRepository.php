@@ -1,4 +1,6 @@
-<?php namespace Modules\Translation\Repositories\File;
+<?php
+
+namespace Modules\Translation\Repositories\File;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Translation\LoaderInterface;

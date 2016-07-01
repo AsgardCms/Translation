@@ -33,6 +33,6 @@ return [
         'primary' => 'Menu principal (usado para as rotas do site)',
     ],
     'navigation' => [
-        'back to index' => 'Voltar para a listagem'
-    ]
+        'back to index' => 'Voltar para a listagem',
+    ],
 ];
