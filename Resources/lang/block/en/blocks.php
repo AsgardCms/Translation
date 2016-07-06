@@ -25,4 +25,8 @@ return [
     'online' => 'Online',
     'name' => 'Name',
     'body' => 'Body',
+    'list resource' => 'List blocks',
+    'create resource' => 'Create blocks',
+    'edit resource' => 'Edit blocks',
+    'destroy resource' => 'Delete blocks',
 ];

@@ -37,4 +37,8 @@ return [
     'allow' => 'Allow',
     'deny' => 'Deny',
     'inherit' => 'Inherit',
+    'list resource' => 'List roles',
+    'create resource' => 'Create roles',
+    'edit resource' => 'Edit roles',
+    'destroy resource' => 'Delete roles',
 ];

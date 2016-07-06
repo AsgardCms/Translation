@@ -41,4 +41,8 @@ return [
     'navigation' => [
         'back to index' => 'Go back to the pages index',
     ],
+    'list resource' => 'List pages',
+    'create resource' => 'Create pages',
+    'edit resource' => 'Edit pages',
+    'destroy resource' => 'Delete pages',
 ];

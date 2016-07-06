@@ -9,4 +9,7 @@ return [
     'add widget to dashboard' => 'Add widget to dashboard',
     'reset not needed' => 'Dashboard didn\'t need resetting',
     'dashboard reset' => 'Dashboard has been reset',
+    'list resource' => 'View dashboard',
+    'edit resource' => 'Update dashboard',
+    'reset resource' => 'Reset dashboard',
 ];

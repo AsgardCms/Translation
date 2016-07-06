@@ -22,8 +22,8 @@ return [
         'back to index' => 'Back to posts index',
     ],
     'latest posts' => 'Latest posts',
-    'list resource' => 'List post',
-    'create resource' => 'Create post',
-    'edit resource' => 'Edit post',
-    'destroy resource' => 'Delete post',
+    'list resource' => 'List posts',
+    'create resource' => 'Create posts',
+    'edit resource' => 'Edit posts',
+    'destroy resource' => 'Delete posts',
 ];

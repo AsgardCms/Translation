@@ -8,4 +8,6 @@ return [
     'theme' => 'Theme',
     'viewing theme' => 'Viewing theme :theme',
     'type' => 'Type',
+    'list resource' => 'List themes',
+    'show resource' => 'View themes',
 ];

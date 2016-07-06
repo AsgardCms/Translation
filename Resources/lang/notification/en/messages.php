@@ -13,4 +13,8 @@ return [
     'all notifications deleted' => 'All your notifications were successfully deleted.',
     'all notifications marked as read' => 'All your notifications were successfully marked as read.',
     'view all' => 'View all',
+    'list resource' => 'List notifications',
+    'destroy resource' => 'Delete notifications',
+    'destroy all resource' => 'Delete all notifications',
+    'markAllAsRead resource' => 'Mark all notifications as read',
 ];

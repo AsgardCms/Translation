@@ -17,4 +17,8 @@ return [
         'internal' => 'Internal',
         'external' => 'External',
     ],
+    'list resource' => 'List menu items',
+    'create resource' => 'Create menu items',
+    'edit resource' => 'Edit menu items',
+    'destroy resource' => 'Delete menu items',
 ];

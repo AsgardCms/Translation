@@ -35,4 +35,8 @@ return [
     'navigation' => [
         'back to index' => 'Go back to the menu index',
     ],
+    'list resource' => 'List menus',
+    'create resource' => 'Create menus',
+    'edit resource' => 'Edit menus',
+    'destroy resource' => 'Delete menus',
 ];
