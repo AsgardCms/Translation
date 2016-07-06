@@ -57,4 +57,8 @@ return [
     'back' => 'Back',
     'back to index' => 'Back to :name index',
     'permission denied' => 'Permission denied. (required permission: ":permission")',
+    'list resource' => 'List :name',
+    'create resource' => 'Create :name',
+    'edit resource' => 'Edit :name',
+    'destroy resource' => 'Delete :name',
 ];
