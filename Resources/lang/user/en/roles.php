@@ -30,6 +30,11 @@ return [
     ],
     'select all' => 'Select all',
     'deselect all' => 'Deselect all',
-    'inherit' => 'Inherit from role',
     'swap' => 'Swap',
+    'allow all' => 'Allow all',
+    'deny all' => 'Deny all',
+    'inherit all' => 'Inherit all',
+    'allow' => 'Allow',
+    'deny' => 'Deny',
+    'inherit' => 'Inherit',
 ];
