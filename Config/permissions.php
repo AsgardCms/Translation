@@ -2,9 +2,9 @@
 
 return [
     'translation.translations' => [
-        'index' => 'List translations',
-        'edit' => 'Edit translations',
-        'import' => 'Import translations',
-        'export' => 'Export translations',
+        'index' => 'translation::translations.list resource',
+        'edit' => 'translation::translations.edit resource',
+        'import' => 'translation::translations.import resource',
+        'export' => 'translation::translations.export resource',
     ],
 ];
