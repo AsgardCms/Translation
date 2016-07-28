@@ -61,4 +61,7 @@ return [
     'list api key' => 'List api keys',
     'create api key' => 'Create api keys',
     'destroy api key' => 'Delete api keys',
+    'invalid login or password' => 'Invalid login or password.',
+    'account not validated' => 'Account not yet validated. Please check your email.',
+    'account is blocked' => 'Your account is blocked for :delay second(s).',
 ];
