@@ -27,7 +27,7 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
         $locale = $locale ?: app()->getLocale();
 
         return $this->cache
-            ->tags($this->entityName, 'global')
+            ->tags([$this->entityName, 'global'])
             ->rememberForever("{$this->entityName}.findByKeyAndLocale.{$cleanKey}.{$locale}",
                 function () use ($key, $locale) {
                     return $this->repository->findByKeyAndLocale($key, $locale);
@@ -38,7 +38,7 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
     public function allFormatted()
     {
         return $this->cache
-            ->tags($this->entityName, 'global')
+            ->tags([$this->entityName, 'global'])
             ->rememberForever("{$this->locale}.{$this->entityName}.allFormatted",
                 function () {
                     return $this->repository->allFormatted();
@@ -58,7 +58,7 @@ class CacheTranslationDecorator extends BaseCacheDecorator implements Translatio
         $cleanKey = $this->cleanKey($key);
 
         return $this->cache
-            ->tags($this->entityName, 'global')
+            ->tags([$this->entityName, 'global'])
             ->rememberForever("{$this->locale}.{$this->entityName}.findTranslationByKey.{$cleanKey}",
                 function () use ($key) {
                     return $this->repository->findTranslationByKey($key);
