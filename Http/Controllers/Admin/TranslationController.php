@@ -51,9 +51,11 @@ class TranslationController extends AdminBaseController
 
     public function export(TranslationsExporter $exporter)
     {
-        $exporter->export();
-
-        return redirect()->route('admin.translation.translation.index')->withSuccess(trans('translation::translations.Translations exported'));
+        return response()->make($exporter->export(), [
+            "Content-Type" => "application/csv",
+            "Content-Disposition" => "attachment; filename=export_{$exporter->getFileName()}.csv",
+            "Pragma" => "no-cache"
+        ]);
     }
 
     public function import(ImportTranslationsRequest $request, TranslationsImporter $importer)

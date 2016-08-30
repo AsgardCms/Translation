@@ -25,13 +25,14 @@ class TranslationsExporter
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->insertOne($keys);
         $csv->insertAll($data);
-        $csv->output($this->getFileName());
+
+        return (string) $csv;
     }
 
     /**
      * @return string
      */
-    private function getFileName()
+    public function getFileName()
     {
         return $this->filename . time() . '.csv';
     }
