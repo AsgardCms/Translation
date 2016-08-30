@@ -32,6 +32,9 @@ class TranslationsService
 
         foreach ($allFileTranslations as $locale => $fileTranslation) {
             foreach ($fileTranslation as $key => $translation) {
+                if (is_string($translation) === false) {
+                    unset($allFileTranslations[$locale][$key]);
+                }
                 if (isset($allDatabaseTranslations[$locale][$key])) {
                     $allFileTranslations[$locale][$key] = $allDatabaseTranslations[$locale][$key];
                     unset($allDatabaseTranslations[$locale][$key]);
