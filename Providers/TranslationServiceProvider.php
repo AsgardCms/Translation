@@ -50,6 +50,8 @@ class TranslationServiceProvider extends ServiceProvider
         if ($this->shouldRegisterCustomTranslator()) {
             $this->registerCustomTranslator();
         }
+
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
     }
 
     /**
