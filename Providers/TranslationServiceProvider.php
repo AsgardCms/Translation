@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use Modules\Core\Composers\CurrentUserViewComposer;
 use Modules\Translation\Console\BuildTranslationsCacheCommand;
 use Modules\Translation\Entities\Translation;
 use Modules\Translation\Repositories\Cache\CacheTranslationDecorator;
@@ -32,8 +31,6 @@ class TranslationServiceProvider extends ServiceProvider
     {
         $this->registerBindings();
         $this->registerConsoleCommands();
-
-        view()->composer('translation::admin.translations.index', CurrentUserViewComposer::class);
     }
 
     public function boot()
