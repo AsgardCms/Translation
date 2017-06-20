@@ -12,6 +12,7 @@ return [
     'slug is unique' => 'This slug is already taken',
 
     /* Category management */
+    'name is required' => 'Name is required',
     'category created' => 'Category successfully created.',
     'category not found' => 'Category not found.',
     'category updated' => 'Category successfully updated.',
